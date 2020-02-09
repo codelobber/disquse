@@ -14,6 +14,12 @@
 		2CC29C4F23F09D5700327917 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CC29C4E23F09D5700327917 /* Assets.xcassets */; };
 		2CC29C5223F09D5700327917 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CC29C5023F09D5700327917 /* LaunchScreen.storyboard */; };
 		2CC29C5D23F09D5800327917 /* DisgooseionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC29C5C23F09D5800327917 /* DisgooseionTests.swift */; };
+		2CC29C6D23F0A11300327917 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC29C6C23F0A11300327917 /* Question.swift */; };
+		2CC29C7023F0A2B100327917 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC29C6F23F0A2B100327917 /* GameViewController.swift */; };
+		2CC29C7323F0A4A400327917 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC29C7223F0A4A400327917 /* CardView.swift */; };
+		2CC29C7523F0A58B00327917 /* BasicCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC29C7423F0A58B00327917 /* BasicCardView.swift */; };
+		2CC29C7823F0A6C600327917 /* QuestionsDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC29C7723F0A6C600327917 /* QuestionsDatasource.swift */; };
+		2CC29C7A23F0A78000327917 /* GameAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC29C7923F0A78000327917 /* GameAssembly.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +44,12 @@
 		2CC29C5823F09D5800327917 /* DisgooseionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DisgooseionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CC29C5C23F09D5800327917 /* DisgooseionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisgooseionTests.swift; sourceTree = "<group>"; };
 		2CC29C5E23F09D5800327917 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2CC29C6C23F0A11300327917 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		2CC29C6F23F0A2B100327917 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		2CC29C7223F0A4A400327917 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		2CC29C7423F0A58B00327917 /* BasicCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicCardView.swift; sourceTree = "<group>"; };
+		2CC29C7723F0A6C600327917 /* QuestionsDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsDatasource.swift; sourceTree = "<group>"; };
+		2CC29C7923F0A78000327917 /* GameAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAssembly.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,13 +91,10 @@
 		2CC29C4423F09D5500327917 /* Disgooseion */ = {
 			isa = PBXGroup;
 			children = (
-				2CC29C4523F09D5500327917 /* AppDelegate.swift */,
-				2CC29C4723F09D5500327917 /* SceneDelegate.swift */,
+				2CC29C7C23F0AAAA00327917 /* Application */,
+				2CC29C7B23F0AA9E00327917 /* Resources */,
+				2CC29C6923F0A0BF00327917 /* Classes */,
 				2CC29C4923F09D5500327917 /* ViewController.swift */,
-				2CC29C4B23F09D5500327917 /* Main.storyboard */,
-				2CC29C4E23F09D5700327917 /* Assets.xcassets */,
-				2CC29C5023F09D5700327917 /* LaunchScreen.storyboard */,
-				2CC29C5323F09D5700327917 /* Info.plist */,
 			);
 			path = Disgooseion;
 			sourceTree = "<group>";
@@ -97,6 +106,79 @@
 				2CC29C5E23F09D5800327917 /* Info.plist */,
 			);
 			path = DisgooseionTests;
+			sourceTree = "<group>";
+		};
+		2CC29C6923F0A0BF00327917 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				2CC29C7623F0A6A300327917 /* RepositoryLayer */,
+				2CC29C6B23F0A0EE00327917 /* ModelLayer */,
+				2CC29C6A23F0A0D500327917 /* ViewLayer */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		2CC29C6A23F0A0D500327917 /* ViewLayer */ = {
+			isa = PBXGroup;
+			children = (
+				2CC29C6E23F0A27300327917 /* Game */,
+			);
+			path = ViewLayer;
+			sourceTree = "<group>";
+		};
+		2CC29C6B23F0A0EE00327917 /* ModelLayer */ = {
+			isa = PBXGroup;
+			children = (
+				2CC29C6C23F0A11300327917 /* Question.swift */,
+			);
+			path = ModelLayer;
+			sourceTree = "<group>";
+		};
+		2CC29C6E23F0A27300327917 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				2CC29C7123F0A47900327917 /* View */,
+				2CC29C6F23F0A2B100327917 /* GameViewController.swift */,
+				2CC29C7923F0A78000327917 /* GameAssembly.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		2CC29C7123F0A47900327917 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2CC29C7223F0A4A400327917 /* CardView.swift */,
+				2CC29C7423F0A58B00327917 /* BasicCardView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2CC29C7623F0A6A300327917 /* RepositoryLayer */ = {
+			isa = PBXGroup;
+			children = (
+				2CC29C7723F0A6C600327917 /* QuestionsDatasource.swift */,
+			);
+			path = RepositoryLayer;
+			sourceTree = "<group>";
+		};
+		2CC29C7B23F0AA9E00327917 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2CC29C4B23F09D5500327917 /* Main.storyboard */,
+				2CC29C4E23F09D5700327917 /* Assets.xcassets */,
+				2CC29C5023F09D5700327917 /* LaunchScreen.storyboard */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		2CC29C7C23F0AAAA00327917 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				2CC29C5323F09D5700327917 /* Info.plist */,
+				2CC29C4523F09D5500327917 /* AppDelegate.swift */,
+				2CC29C4723F09D5500327917 /* SceneDelegate.swift */,
+			);
+			name = Application;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,7 +227,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 1130;
-				ORGANIZATIONNAME = allBeFine;
+				ORGANIZATIONNAME = Codelobber;
 				TargetAttributes = {
 					2CC29C4123F09D5500327917 = {
 						CreatedOnToolsVersion = 11.3.1;
@@ -201,8 +283,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CC29C4A23F09D5500327917 /* ViewController.swift in Sources */,
+				2CC29C6D23F0A11300327917 /* Question.swift in Sources */,
+				2CC29C7823F0A6C600327917 /* QuestionsDatasource.swift in Sources */,
 				2CC29C4623F09D5500327917 /* AppDelegate.swift in Sources */,
 				2CC29C4823F09D5500327917 /* SceneDelegate.swift in Sources */,
+				2CC29C7A23F0A78000327917 /* GameAssembly.swift in Sources */,
+				2CC29C7323F0A4A400327917 /* CardView.swift in Sources */,
+				2CC29C7023F0A2B100327917 /* GameViewController.swift in Sources */,
+				2CC29C7523F0A58B00327917 /* BasicCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
