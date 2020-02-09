@@ -1,1 +1,3 @@
-# disquse
+# Disquse
+
+Simple question card application
