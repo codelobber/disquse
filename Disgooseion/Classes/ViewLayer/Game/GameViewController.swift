@@ -39,6 +39,9 @@ final class GameViewController: UIViewController {
     }
     
     private func setupLayout() {
+        
+        gameView.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
             gameView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             gameView.leadingAnchor.constraint(equalTo: view.leadingAnchor),

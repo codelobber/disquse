@@ -6,7 +6,14 @@
 import UIKit
 
 final class BasicCardView: UIView {
-    private let label: UILabel = UILabel()
+    private let label: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.textAlignment = .center
+        
+        return label
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -20,13 +27,17 @@ final class BasicCardView: UIView {
     }
     
     private func setupSubviews() {
+        backgroundColor = UIColor.white
         addSubview(label)
     }
     
     private func setupLayout() {
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
             label.centerYAnchor.constraint(equalTo: centerYAnchor),
-            label.centerXAnchor.constraint(equalTo: centerXAnchor)
+            label.centerXAnchor.constraint(equalTo: centerXAnchor),
+            label.widthAnchor.constraint(lessThanOrEqualTo: widthAnchor, constant: -40)
         ])
     }
 }
