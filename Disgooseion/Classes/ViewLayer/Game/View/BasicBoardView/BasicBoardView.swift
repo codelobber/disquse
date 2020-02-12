@@ -6,14 +6,7 @@
 import UIKit
 
 final class BasicBoardView: UIView {
-    private let label: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
-        label.textAlignment = .center
-        
-        return label
-    }()
+    private var currentCard: CardView?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,23 +20,37 @@ final class BasicBoardView: UIView {
     }
     
     private func setupSubviews() {
-        backgroundColor = UIColor.white
-        addSubview(label)
+        backgroundColor = .gray
+//        addSubview(label)
     }
     
     private func setupLayout() {
-        label.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    private func setupCardLayout() {
+        guard let card = self.currentCard else {
+            return
+        }
+        
+        card.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            label.centerYAnchor.constraint(equalTo: centerYAnchor),
-            label.centerXAnchor.constraint(equalTo: centerXAnchor),
-            label.widthAnchor.constraint(lessThanOrEqualTo: widthAnchor, constant: -40)
+            card.centerYAnchor.constraint(equalTo: centerYAnchor),
+            card.centerXAnchor.constraint(equalTo: centerXAnchor),
+            card.centerYAnchor.constraint(equalTo: centerYAnchor),
+            card.widthAnchor.constraint(equalTo: widthAnchor, constant: -40),
+            card.heightAnchor.constraint(equalTo: card.widthAnchor)
         ])
     }
 }
 
 extension BasicBoardView: BoardView {
+    
     func showQuestion(_ question: Question) {
-        label.text = question.text
+        let card = CardView(question: question)
+        
+        self.addSubview(card)
+        currentCard = card
+        setupCardLayout()
     }
 }

@@ -20,7 +20,8 @@
 		2CC29C7523F0A58B00327917 /* BasicBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC29C7423F0A58B00327917 /* BasicBoardView.swift */; };
 		2CC29C7823F0A6C600327917 /* QuestionsDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC29C7723F0A6C600327917 /* QuestionsDatasource.swift */; };
 		2CC29C7A23F0A78000327917 /* GameAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC29C7923F0A78000327917 /* GameAssembly.swift */; };
-		2CC29C7F23F48A5C00327917 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC29C7E23F48A5C00327917 /* CardView.swift */; };
+		2CC29C8023F4983000327917 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC29C7E23F48A5C00327917 /* CardView.swift */; };
+		2CC29C8323F49D7100327917 /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC29C8223F49D7100327917 /* UIView+Layout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		2CC29C7723F0A6C600327917 /* QuestionsDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsDatasource.swift; sourceTree = "<group>"; };
 		2CC29C7923F0A78000327917 /* GameAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAssembly.swift; sourceTree = "<group>"; };
 		2CC29C7E23F48A5C00327917 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		2CC29C8223F49D7100327917 /* UIView+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 		2CC29C6923F0A0BF00327917 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				2CC29C8123F49D5B00327917 /* Extensions */,
 				2CC29C7623F0A6A300327917 /* RepositoryLayer */,
 				2CC29C6B23F0A0EE00327917 /* ModelLayer */,
 				2CC29C6A23F0A0D500327917 /* ViewLayer */,
@@ -190,6 +193,14 @@
 				2CC29C7E23F48A5C00327917 /* CardView.swift */,
 			);
 			path = BasicBoardView;
+			sourceTree = "<group>";
+		};
+		2CC29C8123F49D5B00327917 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2CC29C8223F49D7100327917 /* UIView+Layout.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,11 +305,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CC29C4A23F09D5500327917 /* ViewController.swift in Sources */,
-				2CC29C7F23F48A5C00327917 /* CardView.swift in Sources */,
 				2CC29C6D23F0A11300327917 /* Question.swift in Sources */,
 				2CC29C7823F0A6C600327917 /* QuestionsDatasource.swift in Sources */,
 				2CC29C4623F09D5500327917 /* AppDelegate.swift in Sources */,
+				2CC29C8023F4983000327917 /* CardView.swift in Sources */,
 				2CC29C4823F09D5500327917 /* SceneDelegate.swift in Sources */,
+				2CC29C8323F49D7100327917 /* UIView+Layout.swift in Sources */,
 				2CC29C7A23F0A78000327917 /* GameAssembly.swift in Sources */,
 				2CC29C7323F0A4A400327917 /* BoardView.swift in Sources */,
 				2CC29C7023F0A2B100327917 /* GameViewController.swift in Sources */,
