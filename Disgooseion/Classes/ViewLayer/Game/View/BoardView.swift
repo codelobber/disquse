@@ -5,6 +5,6 @@
 
 import UIKit
 
-protocol CardView: UIView {
+protocol BoardView: UIView {
     func showQuestion(_ question: Question)
 }

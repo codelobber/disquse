@@ -5,7 +5,7 @@
 
 import UIKit
 
-final class BasicCardView: UIView {
+final class BasicBoardView: UIView {
     private let label: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
@@ -42,7 +42,7 @@ final class BasicCardView: UIView {
     }
 }
 
-extension BasicCardView: CardView {
+extension BasicBoardView: BoardView {
     func showQuestion(_ question: Question) {
         label.text = question.text
     }

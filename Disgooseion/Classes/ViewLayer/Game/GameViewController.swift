@@ -6,11 +6,11 @@
 import UIKit
 
 final class GameViewController: UIViewController {
-    let gameView: CardView
+    let gameView: BoardView
     let datasource: QuestionsDatasource
 
     init(
-        gameView: CardView,
+        gameView: BoardView,
         datasource: QuestionsDatasource
     ) {
         self.gameView = gameView
