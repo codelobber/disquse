@@ -5,11 +5,20 @@
 
 import UIKit
 
+struct CardViewModel {
+    enum Side {
+        case face
+        case back
+    }
+    let title: String
+    let side: Side
+}
+
 class CardView: UIView {
     
-    private let questionModel: Question
+    private let model: CardViewModel
     
-    private let label: UILabel = {
+    lazy private var label: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
@@ -18,16 +27,16 @@ class CardView: UIView {
         return label
     }()
     
-    private let background: UIView = {
+    lazy private var background: UIView = {
         let view = UIView()
-        view.backgroundColor = Constants.backgroundColor
+        view.backgroundColor = Constants.backgroundColor(model.side)
         view.layer.cornerRadius = Constants.cornerRadius/2
         
         return view
     }()
     
-    init(question: Question) {
-        self.questionModel = question
+    init(model: CardViewModel) {
+        self.model = model
         super.init(frame: .zero)
         
         setupSubviews()
@@ -43,7 +52,7 @@ class CardView: UIView {
         addSubview(background)
         addSubview(label)
         
-        label.text = questionModel.text
+        label.text = model.title
         self.layer.cornerRadius = Constants.cornerRadius
     }
     
@@ -75,5 +84,15 @@ extension CardView {
         static let cardInsets = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
         static let backgroundColor = UIColor.lightGray
         static let cardColor = UIColor.white
+        
+        static func backgroundColor(_ side: CardViewModel.Side) -> UIColor {
+            switch side {
+            case .face:
+                return UIColor.lightGray
+            case .back:
+                return UIColor.darkGray
+            }
+            
+        }
     }
 }

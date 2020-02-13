@@ -22,6 +22,7 @@
 		2CC29C7A23F0A78000327917 /* GameAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC29C7923F0A78000327917 /* GameAssembly.swift */; };
 		2CC29C8023F4983000327917 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC29C7E23F48A5C00327917 /* CardView.swift */; };
 		2CC29C8323F49D7100327917 /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC29C8223F49D7100327917 /* UIView+Layout.swift */; };
+		2CC29C8523F5DF7A00327917 /* Question+Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC29C8423F5DF7A00327917 /* Question+Converter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		2CC29C7923F0A78000327917 /* GameAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAssembly.swift; sourceTree = "<group>"; };
 		2CC29C7E23F48A5C00327917 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		2CC29C8223F49D7100327917 /* UIView+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
+		2CC29C8423F5DF7A00327917 /* Question+Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Question+Converter.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				2CC29C6C23F0A11300327917 /* Question.swift */,
+				2CC29C8423F5DF7A00327917 /* Question+Converter.swift */,
 			);
 			path = ModelLayer;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				2CC29C4623F09D5500327917 /* AppDelegate.swift in Sources */,
 				2CC29C8023F4983000327917 /* CardView.swift in Sources */,
 				2CC29C4823F09D5500327917 /* SceneDelegate.swift in Sources */,
+				2CC29C8523F5DF7A00327917 /* Question+Converter.swift in Sources */,
 				2CC29C8323F49D7100327917 /* UIView+Layout.swift in Sources */,
 				2CC29C7A23F0A78000327917 /* GameAssembly.swift in Sources */,
 				2CC29C7323F0A4A400327917 /* BoardView.swift in Sources */,

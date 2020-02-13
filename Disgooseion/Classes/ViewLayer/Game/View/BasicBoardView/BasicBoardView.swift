@@ -7,6 +7,13 @@ import UIKit
 
 final class BasicBoardView: UIView {
     private var currentCard: CardView?
+    private var deck: CardView = {
+        let model = CardViewModel(
+            title:"",
+            side: .back
+        )
+        return CardView(model: model)
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -21,10 +28,11 @@ final class BasicBoardView: UIView {
     
     private func setupSubviews() {
         backgroundColor = .gray
-//        addSubview(label)
+        addSubview(deck)
     }
     
     private func setupLayout() {
+        setupDeckLayout()
     }
     
     private func setupCardLayout() {
@@ -41,12 +49,23 @@ final class BasicBoardView: UIView {
             card.heightAnchor.constraint(equalTo: card.widthAnchor)
         ])
     }
+    
+    private func setupDeckLayout() {
+        deck.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            deck.centerYAnchor.constraint(equalTo: bottomAnchor),
+            deck.centerXAnchor.constraint(equalTo: centerXAnchor),
+            deck.widthAnchor.constraint(equalTo: widthAnchor, constant: -40),
+            deck.heightAnchor.constraint(equalTo: deck.widthAnchor)
+        ])
+    }
 }
 
 extension BasicBoardView: BoardView {
     
     func showQuestion(_ question: Question) {
-        let card = CardView(question: question)
+        let card = CardView(model: question.cardViewModel())
         
         self.addSubview(card)
         currentCard = card
