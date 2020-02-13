@@ -35,9 +35,8 @@ final class BasicBoardView: UIView {
         card.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            card.centerYAnchor.constraint(equalTo: centerYAnchor),
+            card.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -100),
             card.centerXAnchor.constraint(equalTo: centerXAnchor),
-            card.centerYAnchor.constraint(equalTo: centerYAnchor),
             card.widthAnchor.constraint(equalTo: widthAnchor, constant: -40),
             card.heightAnchor.constraint(equalTo: card.widthAnchor)
         ])
