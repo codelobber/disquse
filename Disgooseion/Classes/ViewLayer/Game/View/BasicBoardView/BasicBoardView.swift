@@ -6,6 +6,8 @@
 import UIKit
 
 final class BasicBoardView: UIView {
+    weak var delegate: BoardViewOutput?
+    
     private var currentCard: CardView?
     private var deck: CardView = {
         let model = CardViewModel(
@@ -29,6 +31,17 @@ final class BasicBoardView: UIView {
     private func setupSubviews() {
         backgroundColor = .gray
         addSubview(deck)
+        
+        let tapGesture = UITapGestureRecognizer(
+            target: self,
+            action: #selector(deckTap)
+        )
+        deck.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc
+    func deckTap() {
+        delegate?.nextQuestion()
     }
     
     private func setupLayout() {
@@ -65,10 +78,17 @@ final class BasicBoardView: UIView {
 extension BasicBoardView: BoardView {
     
     func showQuestion(_ question: Question) {
+        
+        removeCurrentCard()
+        
         let card = CardView(model: question.cardViewModel())
         
         self.addSubview(card)
         currentCard = card
         setupCardLayout()
+    }
+    
+    private func removeCurrentCard() {
+        currentCard?.removeFromSuperview()
     }
 }

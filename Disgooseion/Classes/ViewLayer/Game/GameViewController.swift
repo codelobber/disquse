@@ -35,6 +35,7 @@ final class GameViewController: UIViewController {
     }
     
     private func setupSubviews() {
+        gameView.delegate = self
         view.addSubview(gameView)
     }
     
@@ -48,5 +49,13 @@ final class GameViewController: UIViewController {
             gameView.topAnchor.constraint(equalTo: view.topAnchor),
             gameView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+    }
+}
+
+// MARK: - <BoardViewOutput>
+
+extension GameViewController: BoardViewOutput {
+    func nextQuestion() {
+        gameView.showQuestion(datasource.nextQuestion())
     }
 }

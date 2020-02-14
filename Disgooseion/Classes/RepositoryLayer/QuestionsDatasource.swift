@@ -3,7 +3,7 @@
 //  Copyright © 2020 Codelobber. All rights reserved.
 //
 
-/// Datasourcer for 
+/// Datasource for board
 protocol QuestionsDatasource {
     func nextQuestion() -> Question
 }
@@ -12,8 +12,10 @@ final class MockQuestionsDatasource {
     
 }
 
+// MARK - <QuestionsDatasource>
+
 extension MockQuestionsDatasource: QuestionsDatasource {
     func nextQuestion() -> Question {
-        return Question(id: 0, deck: 0, text: "Что ты делал в этот день четыре года назад? ")
+        return Question(id: 0, deck: 0, text: "\(Int.random(in: 10...100)) ")
     }
 }
