@@ -6,5 +6,5 @@
 struct Question {
     let id: Int?
     let deck: Int?
-    let text: String
+    let text: LocalizebleString
 }

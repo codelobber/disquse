@@ -8,7 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		2C62267623F9CD2D0041DAD8 /* questions.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C62267523F9CD2D0041DAD8 /* questions.json */; };
-		2C62267923F9D5B20041DAD8 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C62267823F9D5B20041DAD8 /* Loader.swift */; };
+		2C62267923F9D5B20041DAD8 /* QuestionLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C62267823F9D5B20041DAD8 /* QuestionLoader.swift */; };
+		2C62267B23F9D7480041DAD8 /* LocalQuestionLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C62267A23F9D7480041DAD8 /* LocalQuestionLoader.swift */; };
+		2C62267D23F9D95A0041DAD8 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C62267C23F9D95A0041DAD8 /* ResponseModel.swift */; };
+		2C62267F23F9DA8F0041DAD8 /* LocalizebleString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C62267E23F9DA8F0041DAD8 /* LocalizebleString.swift */; };
+		2C62268223F9DE8B0041DAD8 /* LocalQuestionsDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C62268123F9DE8B0041DAD8 /* LocalQuestionsDatasource.swift */; };
 		2CC29C4623F09D5500327917 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC29C4523F09D5500327917 /* AppDelegate.swift */; };
 		2CC29C4823F09D5500327917 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC29C4723F09D5500327917 /* SceneDelegate.swift */; };
 		2CC29C4A23F09D5500327917 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC29C4923F09D5500327917 /* ViewController.swift */; };
@@ -39,7 +43,11 @@
 
 /* Begin PBXFileReference section */
 		2C62267523F9CD2D0041DAD8 /* questions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = questions.json; path = Resources/questions.json; sourceTree = "<group>"; };
-		2C62267823F9D5B20041DAD8 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
+		2C62267823F9D5B20041DAD8 /* QuestionLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionLoader.swift; sourceTree = "<group>"; };
+		2C62267A23F9D7480041DAD8 /* LocalQuestionLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalQuestionLoader.swift; sourceTree = "<group>"; };
+		2C62267C23F9D95A0041DAD8 /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
+		2C62267E23F9DA8F0041DAD8 /* LocalizebleString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizebleString.swift; sourceTree = "<group>"; };
+		2C62268123F9DE8B0041DAD8 /* LocalQuestionsDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalQuestionsDatasource.swift; sourceTree = "<group>"; };
 		2CC29C4223F09D5500327917 /* Disgooseion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Disgooseion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CC29C4523F09D5500327917 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CC29C4723F09D5500327917 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,9 +91,19 @@
 		2C62267723F9D58B0041DAD8 /* Services Layer */ = {
 			isa = PBXGroup;
 			children = (
-				2C62267823F9D5B20041DAD8 /* Loader.swift */,
+				2C62268023F9DA950041DAD8 /* Loader */,
+				2C62267E23F9DA8F0041DAD8 /* LocalizebleString.swift */,
 			);
 			path = "Services Layer";
+			sourceTree = "<group>";
+		};
+		2C62268023F9DA950041DAD8 /* Loader */ = {
+			isa = PBXGroup;
+			children = (
+				2C62267823F9D5B20041DAD8 /* QuestionLoader.swift */,
+				2C62267A23F9D7480041DAD8 /* LocalQuestionLoader.swift */,
+			);
+			path = Loader;
 			sourceTree = "<group>";
 		};
 		2CC29C3923F09D5500327917 = {
@@ -151,6 +169,7 @@
 			children = (
 				2CC29C6C23F0A11300327917 /* Question.swift */,
 				2CC29C8423F5DF7A00327917 /* Question+Converter.swift */,
+				2C62267C23F9D95A0041DAD8 /* ResponseModel.swift */,
 			);
 			path = ModelLayer;
 			sourceTree = "<group>";
@@ -178,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				2CC29C7723F0A6C600327917 /* QuestionsDatasource.swift */,
+				2C62268123F9DE8B0041DAD8 /* LocalQuestionsDatasource.swift */,
 			);
 			path = RepositoryLayer;
 			sourceTree = "<group>";
@@ -326,15 +346,19 @@
 				2CC29C6D23F0A11300327917 /* Question.swift in Sources */,
 				2CC29C7823F0A6C600327917 /* QuestionsDatasource.swift in Sources */,
 				2CC29C4623F09D5500327917 /* AppDelegate.swift in Sources */,
+				2C62267B23F9D7480041DAD8 /* LocalQuestionLoader.swift in Sources */,
 				2CC29C8023F4983000327917 /* CardView.swift in Sources */,
 				2CC29C4823F09D5500327917 /* SceneDelegate.swift in Sources */,
 				2CC29C8523F5DF7A00327917 /* Question+Converter.swift in Sources */,
 				2CC29C8323F49D7100327917 /* UIView+Layout.swift in Sources */,
 				2CC29C7A23F0A78000327917 /* GameAssembly.swift in Sources */,
 				2CC29C7323F0A4A400327917 /* BoardView.swift in Sources */,
-				2C62267923F9D5B20041DAD8 /* Loader.swift in Sources */,
+				2C62268223F9DE8B0041DAD8 /* LocalQuestionsDatasource.swift in Sources */,
+				2C62267923F9D5B20041DAD8 /* QuestionLoader.swift in Sources */,
 				2CC29C7023F0A2B100327917 /* GameViewController.swift in Sources */,
+				2C62267D23F9D95A0041DAD8 /* ResponseModel.swift in Sources */,
 				2CC29C7523F0A58B00327917 /* BasicBoardView.swift in Sources */,
+				2C62267F23F9DA8F0041DAD8 /* LocalizebleString.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,7 +8,7 @@ import UIKit
 struct GameAssembly {
     static func gameViewController() -> UIViewController {
         let gameView = BasicBoardView()
-        let datasource = MockQuestionsDatasource()
+        let datasource = LocalQuestionsDatasource()
         
         let gameController = GameViewController(
             gameView: gameView,

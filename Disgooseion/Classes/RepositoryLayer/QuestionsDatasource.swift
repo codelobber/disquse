@@ -5,7 +5,10 @@
 
 /// Datasource for board
 protocol QuestionsDatasource {
-    func nextQuestion() -> Question
+    typealias loadedClosure = () -> Void
+    
+    func load(_ complition: @escaping loadedClosure)
+    func nextQuestion() -> Question?
 }
 
 final class MockQuestionsDatasource {
@@ -15,7 +18,14 @@ final class MockQuestionsDatasource {
 // MARK - <QuestionsDatasource>
 
 extension MockQuestionsDatasource: QuestionsDatasource {
-    func nextQuestion() -> Question {
-        return Question(id: 0, deck: 0, text: "\(Int.random(in: 10...100)) ")
+    
+    func load(_ complition: @escaping loadedClosure) {
+        complition()
+    }
+    
+    func nextQuestion() -> Question? {
+        let random = Int.random(in: 10...100)
+        let text = LocalizebleString(ru: "ru \(random)", en: "en \(random)")
+        return Question(id: 0, deck: 0, text: text)
     }
 }

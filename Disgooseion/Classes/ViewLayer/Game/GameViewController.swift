@@ -27,11 +27,14 @@ final class GameViewController: UIViewController {
         setupSubviews()
         setupLayout()
         
-        showQuestion()
+        datasource.load { [weak self] in
+            self?.showQuestion()
+        }
     }
     
     private func showQuestion() {
-        gameView.showQuestion(datasource.nextQuestion())
+        guard let nextQuestion = datasource.nextQuestion() else { return }
+        gameView.showQuestion(nextQuestion)
     }
     
     private func setupSubviews() {
@@ -56,6 +59,6 @@ final class GameViewController: UIViewController {
 
 extension GameViewController: BoardViewOutput {
     func nextQuestion() {
-        gameView.showQuestion(datasource.nextQuestion())
+        showQuestion()
     }
 }
