@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C62267623F9CD2D0041DAD8 /* questions.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C62267523F9CD2D0041DAD8 /* questions.json */; };
+		2C62267923F9D5B20041DAD8 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C62267823F9D5B20041DAD8 /* Loader.swift */; };
 		2CC29C4623F09D5500327917 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC29C4523F09D5500327917 /* AppDelegate.swift */; };
 		2CC29C4823F09D5500327917 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC29C4723F09D5500327917 /* SceneDelegate.swift */; };
 		2CC29C4A23F09D5500327917 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC29C4923F09D5500327917 /* ViewController.swift */; };
@@ -36,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C62267523F9CD2D0041DAD8 /* questions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = questions.json; path = Resources/questions.json; sourceTree = "<group>"; };
+		2C62267823F9D5B20041DAD8 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		2CC29C4223F09D5500327917 /* Disgooseion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Disgooseion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CC29C4523F09D5500327917 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CC29C4723F09D5500327917 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +80,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C62267723F9D58B0041DAD8 /* Services Layer */ = {
+			isa = PBXGroup;
+			children = (
+				2C62267823F9D5B20041DAD8 /* Loader.swift */,
+			);
+			path = "Services Layer";
+			sourceTree = "<group>";
+		};
 		2CC29C3923F09D5500327917 = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				2CC29C8123F49D5B00327917 /* Extensions */,
+				2C62267723F9D58B0041DAD8 /* Services Layer */,
 				2CC29C7623F0A6A300327917 /* RepositoryLayer */,
 				2CC29C6B23F0A0EE00327917 /* ModelLayer */,
 				2CC29C6A23F0A0D500327917 /* ViewLayer */,
@@ -175,6 +188,7 @@
 				2CC29C4B23F09D5500327917 /* Main.storyboard */,
 				2CC29C4E23F09D5700327917 /* Assets.xcassets */,
 				2CC29C5023F09D5700327917 /* LaunchScreen.storyboard */,
+				2C62267523F9CD2D0041DAD8 /* questions.json */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -287,6 +301,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C62267623F9CD2D0041DAD8 /* questions.json in Resources */,
 				2CC29C5223F09D5700327917 /* LaunchScreen.storyboard in Resources */,
 				2CC29C4F23F09D5700327917 /* Assets.xcassets in Resources */,
 				2CC29C4D23F09D5500327917 /* Main.storyboard in Resources */,
@@ -317,6 +332,7 @@
 				2CC29C8323F49D7100327917 /* UIView+Layout.swift in Sources */,
 				2CC29C7A23F0A78000327917 /* GameAssembly.swift in Sources */,
 				2CC29C7323F0A4A400327917 /* BoardView.swift in Sources */,
+				2C62267923F9D5B20041DAD8 /* Loader.swift in Sources */,
 				2CC29C7023F0A2B100327917 /* GameViewController.swift in Sources */,
 				2CC29C7523F0A58B00327917 /* BasicBoardView.swift in Sources */,
 			);
