@@ -13,6 +13,7 @@
 		2C62267D23F9D95A0041DAD8 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C62267C23F9D95A0041DAD8 /* ResponseModel.swift */; };
 		2C62267F23F9DA8F0041DAD8 /* LocalizebleString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C62267E23F9DA8F0041DAD8 /* LocalizebleString.swift */; };
 		2C62268223F9DE8B0041DAD8 /* LocalQuestionsDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C62268123F9DE8B0041DAD8 /* LocalQuestionsDatasource.swift */; };
+		2C62268423FB28A70041DAD8 /* FrameBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C62268323FB28A70041DAD8 /* FrameBoardView.swift */; };
 		2CC29C4623F09D5500327917 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC29C4523F09D5500327917 /* AppDelegate.swift */; };
 		2CC29C4823F09D5500327917 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC29C4723F09D5500327917 /* SceneDelegate.swift */; };
 		2CC29C4A23F09D5500327917 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC29C4923F09D5500327917 /* ViewController.swift */; };
@@ -48,6 +49,7 @@
 		2C62267C23F9D95A0041DAD8 /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
 		2C62267E23F9DA8F0041DAD8 /* LocalizebleString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizebleString.swift; sourceTree = "<group>"; };
 		2C62268123F9DE8B0041DAD8 /* LocalQuestionsDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalQuestionsDatasource.swift; sourceTree = "<group>"; };
+		2C62268323FB28A70041DAD8 /* FrameBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameBoardView.swift; sourceTree = "<group>"; };
 		2CC29C4223F09D5500327917 /* Disgooseion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Disgooseion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CC29C4523F09D5500327917 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CC29C4723F09D5500327917 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -187,8 +189,10 @@
 		2CC29C7123F0A47900327917 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2CC29C7E23F48A5C00327917 /* CardView.swift */,
 				2CC29C7223F0A4A400327917 /* BoardView.swift */,
 				2CC29C7D23F48A1B00327917 /* BasicBoardView */,
+				2C62268323FB28A70041DAD8 /* FrameBoardView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -227,7 +231,6 @@
 			isa = PBXGroup;
 			children = (
 				2CC29C7423F0A58B00327917 /* BasicBoardView.swift */,
-				2CC29C7E23F48A5C00327917 /* CardView.swift */,
 			);
 			path = BasicBoardView;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				2CC29C4823F09D5500327917 /* SceneDelegate.swift in Sources */,
 				2CC29C8523F5DF7A00327917 /* Question+Converter.swift in Sources */,
 				2CC29C8323F49D7100327917 /* UIView+Layout.swift in Sources */,
+				2C62268423FB28A70041DAD8 /* FrameBoardView.swift in Sources */,
 				2CC29C7A23F0A78000327917 /* GameAssembly.swift in Sources */,
 				2CC29C7323F0A4A400327917 /* BoardView.swift in Sources */,
 				2C62268223F9DE8B0041DAD8 /* LocalQuestionsDatasource.swift in Sources */,

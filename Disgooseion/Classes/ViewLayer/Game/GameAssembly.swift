@@ -7,7 +7,8 @@ import UIKit
 
 struct GameAssembly {
     static func gameViewController() -> UIViewController {
-        let gameView = BasicBoardView()
+//        let gameView = BasicBoardView()
+        let gameView = FrameBoardView()
         let datasource = LocalQuestionsDatasource()
         
         let gameController = GameViewController(

@@ -13,4 +13,5 @@ protocol BoardView: UIView {
 
 protocol BoardViewOutput: AnyObject {
     func nextQuestion()
+    func getNextQuestion() -> Question?
 }

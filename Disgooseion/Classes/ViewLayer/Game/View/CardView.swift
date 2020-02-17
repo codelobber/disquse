@@ -17,6 +17,7 @@ struct CardViewModel {
 class CardView: UIView {
     
     private let model: CardViewModel
+    private var currentSide: CardViewModel.Side
     
     lazy private var label: UILabel = {
         let label = UILabel()
@@ -29,7 +30,6 @@ class CardView: UIView {
     
     lazy private var background: UIView = {
         let view = UIView()
-        view.backgroundColor = Constants.backgroundColor(model.side)
         view.layer.cornerRadius = Constants.cornerRadius/2
         
         return view
@@ -37,9 +37,12 @@ class CardView: UIView {
     
     init(model: CardViewModel) {
         self.model = model
+        currentSide = model.side
+        
         super.init(frame: .zero)
         
         setupSubviews()
+        updateSubviews()
         setupLayout()
     }
     
@@ -47,13 +50,22 @@ class CardView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func flip() {
+        currentSide = currentSide == .back ? .face : .back
+        updateSubviews()
+    }
+    
     private func setupSubviews() {
         backgroundColor = Constants.cardColor
         addSubview(background)
         addSubview(label)
-        
-        label.text = model.title
         self.layer.cornerRadius = Constants.cornerRadius
+    }
+    
+    private func updateSubviews() {
+        label.text = model.title
+        label.isHidden = currentSide == .back
+        background.backgroundColor = Constants.backgroundColor(currentSide)
     }
     
     private func setupLayout() {
@@ -73,7 +85,7 @@ class CardView: UIView {
         NSLayoutConstraint.activate([
             label.centerYAnchor.constraint(equalTo: centerYAnchor),
             label.centerXAnchor.constraint(equalTo: centerXAnchor),
-            label.widthAnchor.constraint(lessThanOrEqualTo: widthAnchor, constant: -40)
+            label.widthAnchor.constraint(lessThanOrEqualTo: widthAnchor, constant: -50)
         ])
     }
 }

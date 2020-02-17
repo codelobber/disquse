@@ -61,4 +61,8 @@ extension GameViewController: BoardViewOutput {
     func nextQuestion() {
         showQuestion()
     }
+    
+    func getNextQuestion() -> Question? {
+        return datasource.nextQuestion()
+    }
 }
