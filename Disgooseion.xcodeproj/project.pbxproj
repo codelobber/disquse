@@ -14,6 +14,8 @@
 		2C62267F23F9DA8F0041DAD8 /* LocalizebleString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C62267E23F9DA8F0041DAD8 /* LocalizebleString.swift */; };
 		2C62268223F9DE8B0041DAD8 /* LocalQuestionsDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C62268123F9DE8B0041DAD8 /* LocalQuestionsDatasource.swift */; };
 		2C62268423FB28A70041DAD8 /* FrameBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C62268323FB28A70041DAD8 /* FrameBoardView.swift */; };
+		2C62268723FC85010041DAD8 /* FrameBoiardLayouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C62268623FC85010041DAD8 /* FrameBoiardLayouts.swift */; };
+		2C62268A23FC86130041DAD8 /* FrameBoardLayoutFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C62268923FC86130041DAD8 /* FrameBoardLayoutFactory.swift */; };
 		2CC29C4623F09D5500327917 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC29C4523F09D5500327917 /* AppDelegate.swift */; };
 		2CC29C4823F09D5500327917 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC29C4723F09D5500327917 /* SceneDelegate.swift */; };
 		2CC29C4A23F09D5500327917 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC29C4923F09D5500327917 /* ViewController.swift */; };
@@ -50,6 +52,8 @@
 		2C62267E23F9DA8F0041DAD8 /* LocalizebleString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizebleString.swift; sourceTree = "<group>"; };
 		2C62268123F9DE8B0041DAD8 /* LocalQuestionsDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalQuestionsDatasource.swift; sourceTree = "<group>"; };
 		2C62268323FB28A70041DAD8 /* FrameBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameBoardView.swift; sourceTree = "<group>"; };
+		2C62268623FC85010041DAD8 /* FrameBoiardLayouts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameBoiardLayouts.swift; sourceTree = "<group>"; };
+		2C62268923FC86130041DAD8 /* FrameBoardLayoutFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameBoardLayoutFactory.swift; sourceTree = "<group>"; };
 		2CC29C4223F09D5500327917 /* Disgooseion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Disgooseion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CC29C4523F09D5500327917 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CC29C4723F09D5500327917 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +110,24 @@
 				2C62267A23F9D7480041DAD8 /* LocalQuestionLoader.swift */,
 			);
 			path = Loader;
+			sourceTree = "<group>";
+		};
+		2C62268523FC84C60041DAD8 /* FrameBoardView */ = {
+			isa = PBXGroup;
+			children = (
+				2C62268823FC85E40041DAD8 /* FrameBoardLayouts */,
+				2C62268323FB28A70041DAD8 /* FrameBoardView.swift */,
+			);
+			path = FrameBoardView;
+			sourceTree = "<group>";
+		};
+		2C62268823FC85E40041DAD8 /* FrameBoardLayouts */ = {
+			isa = PBXGroup;
+			children = (
+				2C62268623FC85010041DAD8 /* FrameBoiardLayouts.swift */,
+				2C62268923FC86130041DAD8 /* FrameBoardLayoutFactory.swift */,
+			);
+			name = FrameBoardLayouts;
 			sourceTree = "<group>";
 		};
 		2CC29C3923F09D5500327917 = {
@@ -192,7 +214,7 @@
 				2CC29C7E23F48A5C00327917 /* CardView.swift */,
 				2CC29C7223F0A4A400327917 /* BoardView.swift */,
 				2CC29C7D23F48A1B00327917 /* BasicBoardView */,
-				2C62268323FB28A70041DAD8 /* FrameBoardView.swift */,
+				2C62268523FC84C60041DAD8 /* FrameBoardView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -346,6 +368,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CC29C4A23F09D5500327917 /* ViewController.swift in Sources */,
+				2C62268A23FC86130041DAD8 /* FrameBoardLayoutFactory.swift in Sources */,
+				2C62268723FC85010041DAD8 /* FrameBoiardLayouts.swift in Sources */,
 				2CC29C6D23F0A11300327917 /* Question.swift in Sources */,
 				2CC29C7823F0A6C600327917 /* QuestionsDatasource.swift in Sources */,
 				2CC29C4623F09D5500327917 /* AppDelegate.swift in Sources */,

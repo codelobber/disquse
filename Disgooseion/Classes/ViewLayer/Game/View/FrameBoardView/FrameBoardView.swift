@@ -18,25 +18,16 @@ final class FrameBoardView: UIView {
         return CardView(model: model)
     }()
     
-    private var cardSize: CGSize {
-        let widthModificator: CGFloat = 0.8
-        let ratio: CGFloat = 1
-        
-        let width = frame.size.width * widthModificator
-        let height = width * ratio
-        
-        return CGSize(width: width, height: height)
-    }
+    var layoutBuider: FrameBoardLayoutBuilder
+    private var layout: FrameBoardLayouts
+    private var ViewAddedToSuperView = false
     
-    private var cardCenter: CGPoint {
-        return CGPoint(x: center.x, y: 75 + cardSize.height/2)
-    }
-    
-    override init(frame: CGRect) {
+    init(frame: CGRect, layoutBuider: FrameBoardLayoutBuilder) {
+        self.layoutBuider = layoutBuider
+        layout = layoutBuider.make(frame: frame)
         super.init(frame: frame)
         
         setupSubviews()
-        setupLayout()
     }
     
     required init?(coder: NSCoder) {
@@ -45,7 +36,12 @@ final class FrameBoardView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        setupLayout()
+        
+        if (!ViewAddedToSuperView) {
+            ViewAddedToSuperView = true
+            layout = layoutBuider.make(frame: frame)
+            setupLayout()
+        }
     }
     
     private func setupSubviews() {
@@ -71,16 +67,12 @@ final class FrameBoardView: UIView {
     }
     
     private func setupCardSize(_ card: CardView) {
-        card.frame.size = cardSize
+        card.frame.size = layout.cardSize
     }
     
     private func setupDeckLayout() {
-        let size = cardSize
-        let visibleHeight = size.height * 0.6
-        
         setupCardSize(deck)
-        deck.center.x = center.x
-        deck.frame.origin.y = frame.maxY - visibleHeight
+        deck.center = layout.deckCenter
     }
 }
 
@@ -135,7 +127,7 @@ extension FrameBoardView {
         let slideMultiplier: CGFloat = 1000/magnitude
         let animationDuration = Double(max(min(0.2 * slideMultiplier, 2), 0.2))
 
-        let finalPoint = cardCenter
+        let finalPoint = layout.cardCenter
         
         UIView.animate(
             withDuration: animationDuration,
@@ -182,7 +174,7 @@ extension FrameBoardView: BoardView {
         self.addSubview(card)
         currentCard = card
         setupCardSize(card)
-        card.center = cardCenter
+        card.center = layout.cardCenter
     }
     
     private func removeCurrentCard() {
