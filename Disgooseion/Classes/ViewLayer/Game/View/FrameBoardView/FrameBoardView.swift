@@ -10,21 +10,22 @@ final class FrameBoardView: UIView {
     
     private var selectedCard: CardView?
     private var currentCard: CardView?
-    private var deck: CardView = {
-        let model = CardViewModel(
-            title:"",
-            side: .back
-        )
-        return CardView(model: model)
-    }()
+    private var deck: CardView
     
     var layoutBuider: FrameBoardLayoutBuilder
     private var layout: FrameBoardLayouts
     private var ViewAddedToSuperView = false
     
     init(frame: CGRect, layoutBuider: FrameBoardLayoutBuilder) {
+        let model = CardViewModel(
+            title:"",
+            side: .back
+        )
+        
         self.layoutBuider = layoutBuider
         layout = layoutBuider.make(frame: frame)
+        deck = CardView(model: model, styleType: layout.cardStyle)
+        
         super.init(frame: frame)
         
         setupSubviews()
@@ -90,7 +91,7 @@ extension FrameBoardView {
             return
         }
         
-        let card = CardView(model: question.cardViewModel())
+        let card = CardView(model: question.cardViewModel(), styleType: layout.cardStyle)
         card.flip()
         setupCardSize(card)
         card.center = newCenter
@@ -169,7 +170,7 @@ extension FrameBoardView: BoardView {
         
         removeCurrentCard()
         
-        let card = CardView(model: question.cardViewModel())
+        let card = CardView(model: question.cardViewModel(), styleType: layout.cardStyle)
         
         self.addSubview(card)
         currentCard = card

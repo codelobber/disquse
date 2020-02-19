@@ -14,7 +14,7 @@ final class BasicBoardView: UIView {
             title:"",
             side: .back
         )
-        return CardView(model: model)
+        return CardView(model: model, styleType: layout.cardStyle)
     }()
     
     override init(frame: CGRect) {

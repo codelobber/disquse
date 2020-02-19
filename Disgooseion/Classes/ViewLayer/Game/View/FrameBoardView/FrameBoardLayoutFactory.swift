@@ -43,6 +43,8 @@ struct FrameBoardLayouts35inch: FrameBoardLayouts {
     let cardSize: CGSize
     let cardCenter: CGPoint
     let deckCenter: CGPoint
+    let cardStyle = CardView.StyleType.small
+    
     
     init(frame: CGRect) {
         let widthModificator: CGFloat = 0.95
@@ -64,6 +66,7 @@ struct FrameBoardLayouts4inch: FrameBoardLayouts {
     let cardSize: CGSize
     let cardCenter: CGPoint
     let deckCenter: CGPoint
+    let cardStyle = CardView.StyleType.small
     
     init(frame: CGRect) {
         let widthModificator: CGFloat = 0.95
@@ -85,6 +88,7 @@ struct FrameBoardLayouts47inch: FrameBoardLayouts {
     let cardSize: CGSize
     let cardCenter: CGPoint
     let deckCenter: CGPoint
+    let cardStyle = CardView.StyleType.big
     
     init(frame: CGRect) {
         let widthModificator: CGFloat = 0.9
@@ -106,6 +110,7 @@ struct FrameBoardLayouts55inch: FrameBoardLayouts {
     let cardSize: CGSize
     let cardCenter: CGPoint
     let deckCenter: CGPoint
+    let cardStyle = CardView.StyleType.big
     
     init(frame: CGRect) {
         let widthModificator: CGFloat = 0.8
@@ -127,6 +132,7 @@ struct FrameBoardLayouts58inch: FrameBoardLayouts {
     let cardSize: CGSize
     let cardCenter: CGPoint
     let deckCenter: CGPoint
+    let cardStyle = CardView.StyleType.big
     
     init(frame: CGRect) {
         let widthModificator: CGFloat = 0.9
