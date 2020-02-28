@@ -4,6 +4,7 @@
 //
 
 import UIKit
+import Foundation
 
 final class FrameBoardView: UIView {
     weak var delegate: BoardViewOutput?
@@ -11,6 +12,17 @@ final class FrameBoardView: UIView {
     private var selectedCard: CardView?
     private var currentCard: CardView?
     private var deck: CardView
+    private var backgroundView: UIImageView = {
+        guard
+            let image = UIImage(named: "bg", in: Bundle.main, with: nil)
+        else {
+            fatalError("Cant load resurce bg")
+        }
+        let tiledImage =  image.resizableImage(withCapInsets: .zero , resizingMode: .tile)
+        let view = UIImageView(image: tiledImage)
+        
+        return view
+    }()
     
     var layoutBuider: FrameBoardLayoutBuilder
     private var layout: FrameBoardLayouts
@@ -46,7 +58,7 @@ final class FrameBoardView: UIView {
     }
     
     private func setupSubviews() {
-        backgroundColor = .gray
+        addSubview(backgroundView)
         addSubview(deck)
         
         let tapGesture = UITapGestureRecognizer(
@@ -64,11 +76,16 @@ final class FrameBoardView: UIView {
     }
     
     private func setupLayout() {
+        setupBackgroundViewLayout()
         setupDeckLayout()
     }
     
     private func setupCardSize(_ card: CardView) {
         card.frame.size = layout.cardSize
+    }
+    
+    private func setupBackgroundViewLayout() {
+        backgroundView.stickToParentLayout(with: .zero)
     }
     
     private func setupDeckLayout() {
