@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     
         let viewController = GameAssembly.gameViewController()
         
-        navigationController?.pushViewController(viewController, animated: animated)   
+        navigationController?.pushViewController(viewController, animated: false)
     }
 }
 

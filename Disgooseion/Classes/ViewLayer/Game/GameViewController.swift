@@ -39,7 +39,13 @@ final class GameViewController: UIViewController {
     
     private func setupSubviews() {
         gameView.delegate = self
+        view.backgroundColor = .white
         view.addSubview(gameView)
+        gameView.alpha = 0
+        
+        UIView.animate(withDuration: 1, animations: { [weak self] in
+            self?.gameView.alpha = 1
+        }, completion: nil)
     }
     
     private func setupLayout() {
