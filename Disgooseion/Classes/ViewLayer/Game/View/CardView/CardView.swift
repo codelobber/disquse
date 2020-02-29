@@ -67,12 +67,39 @@ class CardView: UIView {
     }
     
     func updateStyle() {
-        background.layer.cornerRadius = style.cornerRadius/2
         backgroundColor = style.cardColor
         layer.cornerRadius = style.cornerRadius
-        background.backgroundColor = backgroundColor(currentSide)
+        
+        setupBackground()
         
         setupLayout()
+    }
+    
+    private func setupBackground() {
+        background.removeFromSuperview()
+        
+        if currentSide == .face {
+            let edges = UIEdgeInsets(top: 60, left: 60, bottom: 60, right: 60)
+            setBackgroundImage("border", capInsets: edges)
+        } else {
+            setBackgroundImage("backImage", capInsets: .zero)
+//
+//            background.backgroundColor = backgroundColor(currentSide)
+//            background.layer.cornerRadius = style.cornerRadius/2
+        }
+        
+        addSubview(background)
+        sendSubviewToBack(background)
+    }
+    
+    private func setBackgroundImage(_ name: String, capInsets:UIEdgeInsets) {
+        guard
+            let image = UIImage(named: name, in: Bundle.main, with: nil)
+            else {
+                fatalError("Cant load resurce \(name)")
+        }
+        let tiledImage = image.resizableImage(withCapInsets: capInsets , resizingMode: .tile)
+        background = UIImageView(image: tiledImage)
     }
     
     private func updateSubviews() {
