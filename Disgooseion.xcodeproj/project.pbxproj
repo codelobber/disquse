@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C2106BA24118D6A00D6FC39 /* SimpleCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2106B924118D6A00D6FC39 /* SimpleCardView.swift */; };
+		2C5AFB7124AFC4590009FF1D /* CardLayoutStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5AFB7024AFC4590009FF1D /* CardLayoutStyle.swift */; };
+		2C5AFB7324AFC77F0009FF1D /* CardStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5AFB7224AFC77F0009FF1D /* CardStyle.swift */; };
 		2C62267623F9CD2D0041DAD8 /* questions.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C62267523F9CD2D0041DAD8 /* questions.json */; };
 		2C62267923F9D5B20041DAD8 /* QuestionLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C62267823F9D5B20041DAD8 /* QuestionLoader.swift */; };
 		2C62267B23F9D7480041DAD8 /* LocalQuestionLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C62267A23F9D7480041DAD8 /* LocalQuestionLoader.swift */; };
@@ -17,6 +20,7 @@
 		2C62268723FC85010041DAD8 /* FrameBoiardLayouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C62268623FC85010041DAD8 /* FrameBoiardLayouts.swift */; };
 		2C62268A23FC86130041DAD8 /* FrameBoardLayoutFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C62268923FC86130041DAD8 /* FrameBoardLayoutFactory.swift */; };
 		2C62268C23FDDC7C0041DAD8 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC29C7223F0A4A400327917 /* BoardView.swift */; };
+		2C6EB1F4240A7D20003449F1 /* UIImage+Overlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6EB1F3240A7D20003449F1 /* UIImage+Overlay.swift */; };
 		2CC29C4623F09D5500327917 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC29C4523F09D5500327917 /* AppDelegate.swift */; };
 		2CC29C4823F09D5500327917 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC29C4723F09D5500327917 /* SceneDelegate.swift */; };
 		2CC29C4A23F09D5500327917 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC29C4923F09D5500327917 /* ViewController.swift */; };
@@ -44,6 +48,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C2106B924118D6A00D6FC39 /* SimpleCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCardView.swift; sourceTree = "<group>"; };
+		2C5AFB7024AFC4590009FF1D /* CardLayoutStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardLayoutStyle.swift; sourceTree = "<group>"; };
+		2C5AFB7224AFC77F0009FF1D /* CardStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStyle.swift; sourceTree = "<group>"; };
 		2C62267523F9CD2D0041DAD8 /* questions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = questions.json; path = Resources/questions.json; sourceTree = "<group>"; };
 		2C62267823F9D5B20041DAD8 /* QuestionLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionLoader.swift; sourceTree = "<group>"; };
 		2C62267A23F9D7480041DAD8 /* LocalQuestionLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalQuestionLoader.swift; sourceTree = "<group>"; };
@@ -53,6 +60,7 @@
 		2C62268323FB28A70041DAD8 /* FrameBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameBoardView.swift; sourceTree = "<group>"; };
 		2C62268623FC85010041DAD8 /* FrameBoiardLayouts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameBoiardLayouts.swift; sourceTree = "<group>"; };
 		2C62268923FC86130041DAD8 /* FrameBoardLayoutFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameBoardLayoutFactory.swift; sourceTree = "<group>"; };
+		2C6EB1F3240A7D20003449F1 /* UIImage+Overlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Overlay.swift"; sourceTree = "<group>"; };
 		2CC29C4223F09D5500327917 /* Disgooseion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Disgooseion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CC29C4523F09D5500327917 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CC29C4723F09D5500327917 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -133,6 +141,9 @@
 			isa = PBXGroup;
 			children = (
 				2CC29C7E23F48A5C00327917 /* CardView.swift */,
+				2C2106B924118D6A00D6FC39 /* SimpleCardView.swift */,
+				2C5AFB7024AFC4590009FF1D /* CardLayoutStyle.swift */,
+				2C5AFB7224AFC77F0009FF1D /* CardStyle.swift */,
 			);
 			path = CardView;
 			sourceTree = "<group>";
@@ -268,6 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				2CC29C8223F49D7100327917 /* UIView+Layout.swift */,
+				2C6EB1F3240A7D20003449F1 /* UIImage+Overlay.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -384,9 +396,13 @@
 				2CC29C8023F4983000327917 /* CardView.swift in Sources */,
 				2CC29C4823F09D5500327917 /* SceneDelegate.swift in Sources */,
 				2CC29C8523F5DF7A00327917 /* Question+Converter.swift in Sources */,
+				2C6EB1F4240A7D20003449F1 /* UIImage+Overlay.swift in Sources */,
 				2CC29C8323F49D7100327917 /* UIView+Layout.swift in Sources */,
 				2C62268423FB28A70041DAD8 /* FrameBoardView.swift in Sources */,
+				2C5AFB7324AFC77F0009FF1D /* CardStyle.swift in Sources */,
+				2C5AFB7124AFC4590009FF1D /* CardLayoutStyle.swift in Sources */,
 				2CC29C7A23F0A78000327917 /* GameAssembly.swift in Sources */,
+				2C2106BA24118D6A00D6FC39 /* SimpleCardView.swift in Sources */,
 				2C62268223F9DE8B0041DAD8 /* LocalQuestionsDatasource.swift in Sources */,
 				2C62267923F9D5B20041DAD8 /* QuestionLoader.swift in Sources */,
 				2CC29C7023F0A2B100327917 /* GameViewController.swift in Sources */,

@@ -10,7 +10,8 @@ extension Question {
     
     func cardViewModel() -> CardViewModel {
         return CardViewModel(
-            title: text.getCurrentLocal() ?? "",
+            faceTitle: text.getCurrentLocal() ?? "",
+            backTitle: "",
             side: .face
         )
     }

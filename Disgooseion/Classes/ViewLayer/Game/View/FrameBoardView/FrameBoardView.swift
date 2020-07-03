@@ -30,7 +30,8 @@ final class FrameBoardView: UIView {
     
     init(frame: CGRect, layoutBuider: FrameBoardLayoutBuilder) {
         let model = CardViewModel(
-            title:"",
+            faceTitle: "",
+            backTitle: "",
             side: .back
         )
         

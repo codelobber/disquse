@@ -11,7 +11,8 @@ final class BasicBoardView: UIView {
     private var currentCard: CardView?
     private var deck: CardView = {
         let model = CardViewModel(
-            title:"",
+            faceTitle: "",
+            backTitle: "",
             side: .back
         )
         return CardView(model: model, styleType: layout.cardStyle)
