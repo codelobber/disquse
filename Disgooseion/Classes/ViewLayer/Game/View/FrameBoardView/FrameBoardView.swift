@@ -120,39 +120,29 @@ extension FrameBoardView {
     
     @objc
     func handlePan(_ gesture: UIPanGestureRecognizer) {
-        guard let gestureView = gesture.view else {
-            return
-        }
+        gesture.setTranslation(.zero, in: self)
+        guard
+            gesture.state == .ended,
+            let gestureView = gesture.view,
+            let card = selectedCard
+        else { return }
         addNewCardIfNeeded(to: gestureView.center)
         
-        guard let card = selectedCard else {
-            return
-        }
-        
         let translation = gesture.translation(in: self)
-        
+        let finalPoint = layout.cardCenter
         card.center = CGPoint(
             x: card.center.x + translation.x,
             y: card.center.y + translation.y
         )
         
-        gesture.setTranslation(.zero, in: self)
-        
-        guard gesture.state == .ended else {
-            return
-        }
-        
         let velocity = gesture.velocity(in: self)
-        let magnitude = sqrt((velocity.x * velocity.x) + (velocity.y * velocity.y))
-        let slideMultiplier: CGFloat = 1000/magnitude
-        let animationDuration = Double(max(min(0.2 * slideMultiplier, 2), 0.2))
-
-        let finalPoint = layout.cardCenter
+        var scalarVelocity = Double(sqrt((velocity.x * velocity.x) + (velocity.y * velocity.y)))
+        scalarVelocity = min(scalarVelocity, 200)
+        let animationDuration = len(card.center, finalPoint) / scalarVelocity
         
         UIView.animate(
             withDuration: animationDuration,
             delay: 0,
-            // 6
             options: .curveEaseOut,
             animations: {
                 card.center = finalPoint
@@ -162,7 +152,6 @@ extension FrameBoardView {
             self.removeCurrentCard()
             self.currentCard = card
         }
-
         selectedCard = nil
     }
     
@@ -180,6 +169,12 @@ extension FrameBoardView {
         )
         
         gesture.setTranslation(.zero, in: self)
+    }
+    
+    private func len(_ startPoint:CGPoint, _ endPoint:CGPoint) -> Double {
+        let xlen = endPoint.x - startPoint.x
+        let ylen = endPoint.y - startPoint.y
+        return Double(sqrt(xlen*xlen + ylen*ylen))
     }
 }
 
