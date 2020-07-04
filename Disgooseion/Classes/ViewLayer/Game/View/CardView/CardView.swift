@@ -69,9 +69,27 @@ class CardView: UIView {
         self.style = styleType.style()
     }
     
-    func flip() {
+    func flip(duration: TimeInterval) {
         currentSide = currentSide == .back ? .face : .back
-        updateSubviews()
+        guard duration > 0 else {
+            updateSubviews()
+            return
+        }
+    
+        let fromView = currentSide == .back ? faceView : backView
+        let toView = currentSide == .back ? backView : faceView
+        
+        UIView.transition(
+            from: fromView,
+            to: toView,
+            duration: duration,
+            options: [
+                .transitionFlipFromTop,
+                .showHideTransitionViews,
+                .curveEaseOut
+            ],
+            completion: nil
+        )
     }
     
     private func setupSubviews() {
@@ -100,6 +118,21 @@ class CardView: UIView {
 }
 
 extension CardView {
+    private func flip(from fromView: UIView,to toView: UIView) {
+        fromView.isHidden = false
+        toView.isHidden = false
+        UIView.transition(
+            from: fromView,
+            to: toView,
+            duration: 1,
+            options: [.transitionFlipFromTop, .showHideTransitionViews]
+        ){ finished in
+            self.setupLayout()
+        }
+     }
+}
+
+extension CardView {
     enum StyleType {
         case big
         case small
@@ -112,3 +145,4 @@ extension CardView {
         }
     }
 }
+

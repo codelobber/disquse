@@ -111,7 +111,7 @@ extension FrameBoardView {
         }
         
         let card = CardView(model: question.cardViewModel(), styleType: layout.cardStyle)
-        card.flip()
+        card.flip(duration: 0)
         setupCardSize(card)
         card.center = newCenter
         self.addSubview(card)
@@ -120,13 +120,11 @@ extension FrameBoardView {
     
     @objc
     func handlePan(_ gesture: UIPanGestureRecognizer) {
-        gesture.setTranslation(.zero, in: self)
-        guard
-            gesture.state == .ended,
-            let gestureView = gesture.view,
-            let card = selectedCard
-        else { return }
+        guard let gestureView = gesture.view else { return }
+        
         addNewCardIfNeeded(to: gestureView.center)
+        
+        guard let card = selectedCard else { return }
         
         let translation = gesture.translation(in: self)
         let finalPoint = layout.cardCenter
@@ -134,11 +132,14 @@ extension FrameBoardView {
             x: card.center.x + translation.x,
             y: card.center.y + translation.y
         )
+        gesture.setTranslation(.zero, in: self)
+        guard gesture.state == .ended else { return }
         
         let velocity = gesture.velocity(in: self)
         var scalarVelocity = Double(sqrt((velocity.x * velocity.x) + (velocity.y * velocity.y)))
-        scalarVelocity = min(scalarVelocity, 200)
-        let animationDuration = len(card.center, finalPoint) / scalarVelocity
+        scalarVelocity = max(scalarVelocity, 500)
+        var animationDuration = len(card.center, finalPoint) / scalarVelocity
+        animationDuration = max(animationDuration, 0.5)
         
         UIView.animate(
             withDuration: animationDuration,
@@ -148,10 +149,10 @@ extension FrameBoardView {
                 card.center = finalPoint
         }) { finished in
             if !finished { return }
-            card.flip()
             self.removeCurrentCard()
             self.currentCard = card
         }
+        card.flip(duration: animationDuration)
         selectedCard = nil
     }
     
