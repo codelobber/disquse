@@ -17,13 +17,18 @@ struct CardViewModel {
 
 class CardView: UIView {
     
-    private var style: CardLayoutStyle
+    private var style: CardLayoutStyle {
+        didSet {
+            faceView.model.layoutStyle = style
+            backView.model.layoutStyle = style
+        }
+    }
     
     private let model: CardViewModel
     private var currentSide: CardViewModel.Side
     
-    private let faceView: UIView
-    private let backView: UIView
+    private let faceView: SimpleCardView
+    private let backView: SimpleCardView
         
     init(
         model: CardViewModel,
@@ -58,6 +63,10 @@ class CardView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setStyleType(_ styleType: StyleType) {
+        self.style = styleType.style()
     }
     
     func flip() {

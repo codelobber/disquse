@@ -12,7 +12,11 @@ struct SimpleCardViewModel {
 }
 
 final class SimpleCardView: UIView {
-    var model: SimpleCardViewModel
+    var model: SimpleCardViewModel {
+        didSet {
+            updateSubviews()
+        }
+    }
     
     lazy private var label: UILabel = {
         let label = UILabel()
@@ -38,7 +42,6 @@ final class SimpleCardView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
 
 extension SimpleCardView {
     private func backgroundColor(_ side: CardViewModel.Side) -> UIColor {

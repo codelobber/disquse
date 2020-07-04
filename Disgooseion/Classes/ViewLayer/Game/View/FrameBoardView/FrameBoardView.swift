@@ -92,6 +92,7 @@ final class FrameBoardView: UIView {
     private func setupDeckLayout() {
         setupCardSize(deck)
         deck.center = layout.deckCenter
+        deck.setStyleType(layout.cardStyle)
     }
 }
 
