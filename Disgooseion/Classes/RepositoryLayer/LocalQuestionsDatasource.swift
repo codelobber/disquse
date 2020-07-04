@@ -11,6 +11,13 @@ final class LocalQuestionsDatasource {
 // MARK - <QuestionsDatasource>
 
 extension LocalQuestionsDatasource: QuestionsDatasource {
+    
+    var questionsCount: Int {
+        get {
+            return questions?.count ?? 0
+        }
+    }
+    
     func load(_ complition: @escaping QuestionsDatasource.loadedClosure) {
         loader.get() { modelDTO in
             questions = modelDTO.questions

@@ -66,9 +66,12 @@ final class GameViewController: UIViewController {
 extension GameViewController: BoardViewOutput {
     func nextQuestion() {
         showQuestion()
+        if datasource.questionsCount == 0 { gameView.hideDeck(true) }
     }
     
     func getNextQuestion() -> Question? {
-        return datasource.nextQuestion()
+        let question = datasource.nextQuestion()
+        if datasource.questionsCount == 0 { gameView.hideDeck(true) }
+        return question
     }
 }

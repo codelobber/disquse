@@ -7,6 +7,8 @@
 protocol QuestionsDatasource {
     typealias loadedClosure = () -> Void
     
+    var questionsCount: Int { get }
+    
     func load(_ complition: @escaping loadedClosure)
     func nextQuestion() -> Question?
 }
@@ -18,6 +20,12 @@ final class MockQuestionsDatasource {
 // MARK - <QuestionsDatasource>
 
 extension MockQuestionsDatasource: QuestionsDatasource {
+    
+    var questionsCount: Int {
+        get {
+            return 999
+        }
+    }
     
     func load(_ complition: @escaping loadedClosure) {
         complition()

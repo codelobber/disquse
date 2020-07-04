@@ -9,6 +9,7 @@ protocol BoardView: UIView {
     var delegate: BoardViewOutput? { get set }
     
     func showQuestion(_ question: Question)
+    func hideDeck(_ shouldHide: Bool)
 }
 
 protocol BoardViewOutput: AnyObject {

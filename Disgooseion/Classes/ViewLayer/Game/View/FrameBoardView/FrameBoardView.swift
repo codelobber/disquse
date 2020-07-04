@@ -110,7 +110,10 @@ extension FrameBoardView {
             return
         }
         
-        let card = CardView(model: question.cardViewModel(), styleType: layout.cardStyle)
+        let card = CardView(
+            model: question.cardViewModel(),
+            styleType: layout.cardStyle
+        )
         card.flip(duration: 0)
         setupCardSize(card)
         card.center = newCenter
@@ -191,6 +194,10 @@ extension FrameBoardView: BoardView {
         currentCard = card
         setupCardSize(card)
         card.center = layout.cardCenter
+    }
+    
+    func hideDeck(_ shouldHide: Bool) {
+        deck.isHidden = shouldHide
     }
     
     private func removeCurrentCard() {
