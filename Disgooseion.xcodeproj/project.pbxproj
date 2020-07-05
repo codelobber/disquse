@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2C2106BA24118D6A00D6FC39 /* SimpleCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2106B924118D6A00D6FC39 /* SimpleCardView.swift */; };
+		2C315BDE24B20252000621E5 /* MockQuestionsDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C315BDD24B20252000621E5 /* MockQuestionsDatasource.swift */; };
 		2C5AFB7124AFC4590009FF1D /* CardLayoutStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5AFB7024AFC4590009FF1D /* CardLayoutStyle.swift */; };
 		2C5AFB7324AFC77F0009FF1D /* CardStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5AFB7224AFC77F0009FF1D /* CardStyle.swift */; };
 		2C62267623F9CD2D0041DAD8 /* questions.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C62267523F9CD2D0041DAD8 /* questions.json */; };
@@ -49,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		2C2106B924118D6A00D6FC39 /* SimpleCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCardView.swift; sourceTree = "<group>"; };
+		2C315BDD24B20252000621E5 /* MockQuestionsDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockQuestionsDatasource.swift; sourceTree = "<group>"; };
 		2C5AFB7024AFC4590009FF1D /* CardLayoutStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardLayoutStyle.swift; sourceTree = "<group>"; };
 		2C5AFB7224AFC77F0009FF1D /* CardStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStyle.swift; sourceTree = "<group>"; };
 		2C62267523F9CD2D0041DAD8 /* questions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = questions.json; path = Resources/questions.json; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 			children = (
 				2CC29C7723F0A6C600327917 /* QuestionsDatasource.swift */,
 				2C62268123F9DE8B0041DAD8 /* LocalQuestionsDatasource.swift */,
+				2C315BDD24B20252000621E5 /* MockQuestionsDatasource.swift */,
 			);
 			path = RepositoryLayer;
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C315BDE24B20252000621E5 /* MockQuestionsDatasource.swift in Sources */,
 				2CC29C4A23F09D5500327917 /* ViewController.swift in Sources */,
 				2C62268A23FC86130041DAD8 /* FrameBoardLayoutFactory.swift in Sources */,
 				2C62268723FC85010041DAD8 /* FrameBoiardLayouts.swift in Sources */,
