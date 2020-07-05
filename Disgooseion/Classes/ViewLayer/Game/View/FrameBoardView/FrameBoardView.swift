@@ -142,7 +142,7 @@ extension FrameBoardView {
         var scalarVelocity = Double(sqrt((velocity.x * velocity.x) + (velocity.y * velocity.y)))
         scalarVelocity = max(scalarVelocity, 500)
         var animationDuration = len(card.center, finalPoint) / scalarVelocity
-        animationDuration = max(animationDuration, 0.5)
+        animationDuration = max(animationDuration, 0.25)
         
         UIView.animate(
             withDuration: animationDuration,
