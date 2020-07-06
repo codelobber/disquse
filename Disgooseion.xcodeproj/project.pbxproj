@@ -22,6 +22,11 @@
 		2C62268A23FC86130041DAD8 /* FrameBoardLayoutFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C62268923FC86130041DAD8 /* FrameBoardLayoutFactory.swift */; };
 		2C62268C23FDDC7C0041DAD8 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC29C7223F0A4A400327917 /* BoardView.swift */; };
 		2C6EB1F4240A7D20003449F1 /* UIImage+Overlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6EB1F3240A7D20003449F1 /* UIImage+Overlay.swift */; };
+		2C7A5BE124B3C5620039C121 /* DeckChooseAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7A5BE024B3C5620039C121 /* DeckChooseAssembly.swift */; };
+		2CB6C3A024B3BECD001BBD98 /* DeckChooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6C39F24B3BECD001BBD98 /* DeckChooseViewController.swift */; };
+		2CB6C3A324B3BFCA001BBD98 /* DecksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6C3A224B3BFCA001BBD98 /* DecksView.swift */; };
+		2CB6C3A524B3C251001BBD98 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6C3A424B3C251001BBD98 /* MainMenuViewController.swift */; };
+		2CB6C3A824B3C277001BBD98 /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6C3A724B3C277001BBD98 /* MainMenuView.swift */; };
 		2CC29C4623F09D5500327917 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC29C4523F09D5500327917 /* AppDelegate.swift */; };
 		2CC29C4823F09D5500327917 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC29C4723F09D5500327917 /* SceneDelegate.swift */; };
 		2CC29C4A23F09D5500327917 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC29C4923F09D5500327917 /* ViewController.swift */; };
@@ -63,6 +68,11 @@
 		2C62268623FC85010041DAD8 /* FrameBoiardLayouts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameBoiardLayouts.swift; sourceTree = "<group>"; };
 		2C62268923FC86130041DAD8 /* FrameBoardLayoutFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameBoardLayoutFactory.swift; sourceTree = "<group>"; };
 		2C6EB1F3240A7D20003449F1 /* UIImage+Overlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Overlay.swift"; sourceTree = "<group>"; };
+		2C7A5BE024B3C5620039C121 /* DeckChooseAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckChooseAssembly.swift; sourceTree = "<group>"; };
+		2CB6C39F24B3BECD001BBD98 /* DeckChooseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckChooseViewController.swift; sourceTree = "<group>"; };
+		2CB6C3A224B3BFCA001BBD98 /* DecksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecksView.swift; sourceTree = "<group>"; };
+		2CB6C3A424B3C251001BBD98 /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
+		2CB6C3A724B3C277001BBD98 /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
 		2CC29C4223F09D5500327917 /* Disgooseion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Disgooseion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CC29C4523F09D5500327917 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CC29C4723F09D5500327917 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -150,6 +160,41 @@
 			path = CardView;
 			sourceTree = "<group>";
 		};
+		2CB6C39D24B3BE4F001BBD98 /* MainMenu */ = {
+			isa = PBXGroup;
+			children = (
+				2CB6C3A624B3C255001BBD98 /* Views */,
+				2CB6C3A424B3C251001BBD98 /* MainMenuViewController.swift */,
+			);
+			path = MainMenu;
+			sourceTree = "<group>";
+		};
+		2CB6C39E24B3BE77001BBD98 /* DeckChoose */ = {
+			isa = PBXGroup;
+			children = (
+				2CB6C3A124B3BFBE001BBD98 /* Views */,
+				2CB6C39F24B3BECD001BBD98 /* DeckChooseViewController.swift */,
+				2C7A5BE024B3C5620039C121 /* DeckChooseAssembly.swift */,
+			);
+			path = DeckChoose;
+			sourceTree = "<group>";
+		};
+		2CB6C3A124B3BFBE001BBD98 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2CB6C3A224B3BFCA001BBD98 /* DecksView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		2CB6C3A624B3C255001BBD98 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2CB6C3A724B3C277001BBD98 /* MainMenuView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		2CC29C3923F09D5500327917 = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +248,8 @@
 		2CC29C6A23F0A0D500327917 /* ViewLayer */ = {
 			isa = PBXGroup;
 			children = (
+				2CB6C39E24B3BE77001BBD98 /* DeckChoose */,
+				2CB6C39D24B3BE4F001BBD98 /* MainMenu */,
 				2CC29C6E23F0A27300327917 /* Game */,
 			);
 			path = ViewLayer;
@@ -390,12 +437,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C315BDE24B20252000621E5 /* MockQuestionsDatasource.swift in Sources */,
+				2CB6C3A324B3BFCA001BBD98 /* DecksView.swift in Sources */,
 				2CC29C4A23F09D5500327917 /* ViewController.swift in Sources */,
+				2CB6C3A024B3BECD001BBD98 /* DeckChooseViewController.swift in Sources */,
 				2C62268A23FC86130041DAD8 /* FrameBoardLayoutFactory.swift in Sources */,
 				2C62268723FC85010041DAD8 /* FrameBoiardLayouts.swift in Sources */,
 				2CC29C6D23F0A11300327917 /* Question.swift in Sources */,
 				2CC29C7823F0A6C600327917 /* QuestionsDatasource.swift in Sources */,
 				2CC29C4623F09D5500327917 /* AppDelegate.swift in Sources */,
+				2CB6C3A524B3C251001BBD98 /* MainMenuViewController.swift in Sources */,
 				2C62267B23F9D7480041DAD8 /* LocalQuestionLoader.swift in Sources */,
 				2CC29C8023F4983000327917 /* CardView.swift in Sources */,
 				2CC29C4823F09D5500327917 /* SceneDelegate.swift in Sources */,
@@ -408,8 +458,10 @@
 				2CC29C7A23F0A78000327917 /* GameAssembly.swift in Sources */,
 				2C2106BA24118D6A00D6FC39 /* SimpleCardView.swift in Sources */,
 				2C62268223F9DE8B0041DAD8 /* LocalQuestionsDatasource.swift in Sources */,
+				2CB6C3A824B3C277001BBD98 /* MainMenuView.swift in Sources */,
 				2C62267923F9D5B20041DAD8 /* QuestionLoader.swift in Sources */,
 				2CC29C7023F0A2B100327917 /* GameViewController.swift in Sources */,
+				2C7A5BE124B3C5620039C121 /* DeckChooseAssembly.swift in Sources */,
 				2C62267D23F9D95A0041DAD8 /* ResponseModel.swift in Sources */,
 				2C62268C23FDDC7C0041DAD8 /* BoardView.swift in Sources */,
 				2C62267F23F9DA8F0041DAD8 /* LocalizebleString.swift in Sources */,

@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     
-        let viewController = GameAssembly.gameViewController()
+        let viewController = DeckChooseAssembly.makeViewController()
         
         navigationController?.pushViewController(viewController, animated: false)
     }

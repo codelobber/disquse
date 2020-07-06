@@ -26,7 +26,7 @@ final class FrameBoardView: UIView {
     
     var layoutBuider: FrameBoardLayoutBuilder
     private var layout: FrameBoardLayouts
-    private var ViewAddedToSuperView = false
+    private var viewAddedToSuperView = false
     
     init(frame: CGRect, layoutBuider: FrameBoardLayoutBuilder) {
         let model = CardViewModel(
@@ -51,8 +51,8 @@ final class FrameBoardView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        if (!ViewAddedToSuperView) {
-            ViewAddedToSuperView = true
+        if (!viewAddedToSuperView) {
+            viewAddedToSuperView = true
             layout = layoutBuider.make(frame: frame)
             setupLayout()
         }
