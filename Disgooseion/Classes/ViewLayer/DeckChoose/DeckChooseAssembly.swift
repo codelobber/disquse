@@ -9,7 +9,7 @@
 import UIKit
 
 struct DeckChooseAssembly {
-    static func makeViewController() -> UIViewController {
+    static func makeViewController(screenConstatants: ScreenConstantsConfiguration) -> UIViewController {
         
         let questionDatasource = LocalQuestionsDatasource()
         questionDatasource.load {}
@@ -21,7 +21,7 @@ struct DeckChooseAssembly {
 
         let view = DecksView(
             frame: .zero,
-            layoutBuider: FrameBoardLayoutBuilderImpl(),
+            screenConstatants: screenConstatants,
             datasource: decksViewDatasource
         )
         

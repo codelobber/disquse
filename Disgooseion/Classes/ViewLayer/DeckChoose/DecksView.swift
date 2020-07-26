@@ -23,35 +23,37 @@ final class DecksView: UIView {
         return view
     }()
     
-    private var layoutBuider: FrameBoardLayoutBuilder
-    private var layout: FrameBoardLayouts
+    private let screenConstatants: ScreenConstantsConfiguration
+
     private var viewAddedToSuperView = false
     private var datasource: DecksViewDatasource
-    private lazy var showcaseView : UICollectionView = {
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
-        layout.itemSize = CGSize(width: 300, height: 300)
+    private lazy var flowLayout: UICollectionViewFlowLayout = {
+        var layout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        layout.itemSize = CGSize(width: 1, height: 1)
         layout.scrollDirection = .horizontal
-        
+        return layout
+    }()
+    private lazy var showcaseView : UICollectionView = {
         let view = UICollectionView(
             frame: frame,
-            collectionViewLayout: layout
+            collectionViewLayout: flowLayout
         )
 
         view.allowsSelection = false
         view.backgroundColor = .clear
         view.dataSource = datasource
+        view.showsHorizontalScrollIndicator = false
         
         return view
     }()
     
     init(
         frame: CGRect,
-        layoutBuider: FrameBoardLayoutBuilder,
+        screenConstatants: ScreenConstantsConfiguration,
         datasource: DecksViewDatasource
     ) {
-        self.layoutBuider = layoutBuider
-        self.layout = layoutBuider.make(frame: frame)
+        self.screenConstatants = screenConstatants
         self.datasource = datasource
         super.init(frame: frame)
         
@@ -66,9 +68,9 @@ final class DecksView: UIView {
         super.layoutSubviews()
         
         if (!viewAddedToSuperView) {
+            screenConstatants.recalculate(frame)
             viewAddedToSuperView = true
-            layout = layoutBuider.make(frame: frame)
-            datasource.cardLayout = layoutBuider.make(frame: frame).cardStyle.style()
+            datasource.cardLayout = screenConstatants.cardStyle.style()
             setupLayout()
         }
     }
@@ -79,8 +81,16 @@ final class DecksView: UIView {
     }
     
     private func setupLayout() {
+        setupCollectionSizes()
         setupBackgroundViewLayout()
         setupShowcaseViewLayout()
+    }
+    
+    private func setupCollectionSizes() {
+        flowLayout.itemSize = CGSize(
+            width: screenConstatants.cardSize.width,
+            height: screenConstatants.cardSize.height
+        )
     }
     
     private func setupBackgroundViewLayout() {
@@ -88,6 +98,15 @@ final class DecksView: UIView {
     }
     
     private func setupShowcaseViewLayout() {
-        showcaseView.stickToParentLayout(with: .zero)
+        showcaseView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            showcaseView.leftAnchor.constraint(equalTo: leftAnchor),
+            showcaseView.rightAnchor.constraint(equalTo: rightAnchor),
+            showcaseView.centerYAnchor.constraint(
+                equalTo: centerYAnchor),
+            showcaseView.heightAnchor.constraint(
+                equalToConstant: screenConstatants.cardSize.height)
+        ])
     }
 }

@@ -26,10 +26,6 @@ final class DeckChooseViewController: UIViewController {
     override func viewDidLoad() {
         setupSubviews()
         setupLayout()
-        
-//        datasource.load { [weak self] in
-//       self?.showQuestion()
-//        }
     }
         
     private func setupSubviews() {

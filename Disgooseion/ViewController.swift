@@ -9,11 +9,12 @@
 import UIKit
 
 class ViewController: UIViewController {
+    let screenConstatants: ScreenConstantsConfiguration = ScreenConstantsConfiguration()
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     
-        let viewController = DeckChooseAssembly.makeViewController()
+        let viewController = DeckChooseAssembly.makeViewController(screenConstatants: screenConstatants)
         
         navigationController?.pushViewController(viewController, animated: false)
     }
