@@ -32,7 +32,7 @@ class CardView: UIView {
         
     init(
         model: CardViewModel,
-        styleType: StyleType
+        styleType: CardLayoutStyle.StyleType
     ) {
         self.model = model
         self.style = styleType.style()
@@ -65,7 +65,7 @@ class CardView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setStyleType(_ styleType: StyleType) {
+    func setStyleType(_ styleType: CardLayoutStyle.StyleType) {
         self.style = styleType.style()
     }
     
@@ -130,19 +130,5 @@ extension CardView {
             self.setupLayout()
         }
      }
-}
-
-extension CardView {
-    enum StyleType {
-        case big
-        case small
-        
-        fileprivate func style() -> CardLayoutStyle {
-            switch self {
-            case .big: return CardStyleBig()
-            case .small: return CardStyleSmall()
-            }
-        }
-    }
 }
 

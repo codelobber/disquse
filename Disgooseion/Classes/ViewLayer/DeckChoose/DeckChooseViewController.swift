@@ -10,14 +10,11 @@ import UIKit
 
 final class DeckChooseViewController: UIViewController {
     let decksView: DecksView
-    let datasource: QuestionsDatasource
 
     init(
-        decksView: DecksView,
-        datasource: QuestionsDatasource
+        decksView: DecksView
     ) {
         self.decksView = decksView
-        self.datasource = datasource
         
         super.init(nibName: nil, bundle: nil)
     }

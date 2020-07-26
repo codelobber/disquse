@@ -31,3 +31,17 @@ class CardStyleSmall: CardLayoutStyle {
         cardInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
 }
+
+extension CardLayoutStyle {
+    enum StyleType {
+        case big
+        case small
+        
+        func style() -> CardLayoutStyle {
+            switch self {
+            case .big: return CardStyleBig()
+            case .small: return CardStyleSmall()
+            }
+        }
+    }
+}

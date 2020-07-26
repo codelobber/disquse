@@ -9,5 +9,5 @@ protocol FrameBoardLayouts {
     var cardSize: CGSize { get }
     var cardCenter: CGPoint { get }
     var deckCenter: CGPoint { get }
-    var cardStyle: CardView.StyleType { get }
+    var cardStyle: CardLayoutStyle.StyleType { get }
 }

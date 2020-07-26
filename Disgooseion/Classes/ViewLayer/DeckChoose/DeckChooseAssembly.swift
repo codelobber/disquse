@@ -10,17 +10,25 @@ import UIKit
 
 struct DeckChooseAssembly {
     static func makeViewController() -> UIViewController {
+        
+        let questionDatasource = LocalQuestionsDatasource()
+        questionDatasource.load {}
+        
+        let decksViewDatasource = DecksViewDatasourceImpl(
+            datasource: questionDatasource,
+            cardLayout: CardStyleBig()
+        )
 
         let view = DecksView(
             frame: .zero,
-            layoutBuider: FrameBoardLayoutBuilderImpl()
+            layoutBuider: FrameBoardLayoutBuilderImpl(),
+            datasource: decksViewDatasource
         )
-        let datasource = LocalQuestionsDatasource()
         
         let viewController = DeckChooseViewController(
-            decksView: view,
-            datasource: datasource
+            decksView: view
         )
+        
         return viewController
     }
 }

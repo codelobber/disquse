@@ -20,13 +20,24 @@ extension MockQuestionsDatasource: QuestionsDatasource {
         }
     }
     
-    func load(_ complition: @escaping loadedClosure) {
-        complition()
+    var decks: [DeckModel]? {
+        get {
+            return [
+                DeckModel(
+                    id: "Simple",
+                    text: LocalizebleString(ru: "ru", en: "en")
+                )
+            ]
+        }
+    }
+    
+    func load(_ complition: loadedClosure?) {
+        complition?()
     }
     
     func nextQuestion() -> Question? {
         let random = Int.random(in: 10...100)
         let text = LocalizebleString(ru: "ru \(random)", en: "en \(random)")
-        return Question(id: 0, deck: 0, text: text)
+        return Question(id: 0, deck: ["Simple"], text: text)
     }
 }

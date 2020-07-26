@@ -6,4 +6,18 @@
 //  Copyright © 2020 Codelobber. All rights reserved.
 //
 
-import Foundation
+struct DeckModel {
+    let id: String
+    let text: LocalizebleString
+}
+
+extension DeckModel {
+    
+    func cardViewModel() -> CardViewModel {
+        return CardViewModel(
+            faceTitle: "",
+            backTitle: text.getCurrentLocal() ?? "",
+            side: .back
+        )
+    }
+}

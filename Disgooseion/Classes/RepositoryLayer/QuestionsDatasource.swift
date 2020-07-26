@@ -8,7 +8,8 @@ protocol QuestionsDatasource {
     typealias loadedClosure = () -> Void
     
     var questionsCount: Int { get }
+    var decks: [DeckModel]? { get }
     
-    func load(_ complition: @escaping loadedClosure)
+    func load(_ complition: loadedClosure?)
     func nextQuestion() -> Question?
 }

@@ -23,6 +23,9 @@
 		2C62268C23FDDC7C0041DAD8 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC29C7223F0A4A400327917 /* BoardView.swift */; };
 		2C6EB1F4240A7D20003449F1 /* UIImage+Overlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6EB1F3240A7D20003449F1 /* UIImage+Overlay.swift */; };
 		2C7A5BE124B3C5620039C121 /* DeckChooseAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7A5BE024B3C5620039C121 /* DeckChooseAssembly.swift */; };
+		2C7A5BE324B4FDCE0039C121 /* DecksViewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7A5BE224B4FDCE0039C121 /* DecksViewDatasource.swift */; };
+		2C7A5BE524B509C00039C121 /* DeckModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7A5BE424B509C00039C121 /* DeckModel.swift */; };
+		2C7A5BE724B5139B0039C121 /* DecksViewDelegateFlowlayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7A5BE624B5139B0039C121 /* DecksViewDelegateFlowlayout.swift */; };
 		2CB6C3A024B3BECD001BBD98 /* DeckChooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6C39F24B3BECD001BBD98 /* DeckChooseViewController.swift */; };
 		2CB6C3A324B3BFCA001BBD98 /* DecksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6C3A224B3BFCA001BBD98 /* DecksView.swift */; };
 		2CB6C3A524B3C251001BBD98 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6C3A424B3C251001BBD98 /* MainMenuViewController.swift */; };
@@ -69,6 +72,9 @@
 		2C62268923FC86130041DAD8 /* FrameBoardLayoutFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameBoardLayoutFactory.swift; sourceTree = "<group>"; };
 		2C6EB1F3240A7D20003449F1 /* UIImage+Overlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Overlay.swift"; sourceTree = "<group>"; };
 		2C7A5BE024B3C5620039C121 /* DeckChooseAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckChooseAssembly.swift; sourceTree = "<group>"; };
+		2C7A5BE224B4FDCE0039C121 /* DecksViewDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecksViewDatasource.swift; sourceTree = "<group>"; };
+		2C7A5BE424B509C00039C121 /* DeckModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckModel.swift; sourceTree = "<group>"; };
+		2C7A5BE624B5139B0039C121 /* DecksViewDelegateFlowlayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecksViewDelegateFlowlayout.swift; sourceTree = "<group>"; };
 		2CB6C39F24B3BECD001BBD98 /* DeckChooseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckChooseViewController.swift; sourceTree = "<group>"; };
 		2CB6C3A224B3BFCA001BBD98 /* DecksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecksView.swift; sourceTree = "<group>"; };
 		2CB6C3A424B3C251001BBD98 /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
@@ -183,6 +189,8 @@
 			isa = PBXGroup;
 			children = (
 				2CB6C3A224B3BFCA001BBD98 /* DecksView.swift */,
+				2C7A5BE224B4FDCE0039C121 /* DecksViewDatasource.swift */,
+				2C7A5BE624B5139B0039C121 /* DecksViewDelegateFlowlayout.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -261,6 +269,7 @@
 				2CC29C6C23F0A11300327917 /* Question.swift */,
 				2CC29C8423F5DF7A00327917 /* Question+Converter.swift */,
 				2C62267C23F9D95A0041DAD8 /* ResponseModel.swift */,
+				2C7A5BE424B509C00039C121 /* DeckModel.swift */,
 			);
 			path = ModelLayer;
 			sourceTree = "<group>";
@@ -436,6 +445,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C7A5BE324B4FDCE0039C121 /* DecksViewDatasource.swift in Sources */,
 				2C315BDE24B20252000621E5 /* MockQuestionsDatasource.swift in Sources */,
 				2CB6C3A324B3BFCA001BBD98 /* DecksView.swift in Sources */,
 				2CC29C4A23F09D5500327917 /* ViewController.swift in Sources */,
@@ -448,6 +458,7 @@
 				2CB6C3A524B3C251001BBD98 /* MainMenuViewController.swift in Sources */,
 				2C62267B23F9D7480041DAD8 /* LocalQuestionLoader.swift in Sources */,
 				2CC29C8023F4983000327917 /* CardView.swift in Sources */,
+				2C7A5BE524B509C00039C121 /* DeckModel.swift in Sources */,
 				2CC29C4823F09D5500327917 /* SceneDelegate.swift in Sources */,
 				2CC29C8523F5DF7A00327917 /* Question+Converter.swift in Sources */,
 				2C6EB1F4240A7D20003449F1 /* UIImage+Overlay.swift in Sources */,
@@ -456,6 +467,7 @@
 				2C5AFB7324AFC77F0009FF1D /* CardStyle.swift in Sources */,
 				2C5AFB7124AFC4590009FF1D /* CardLayoutStyle.swift in Sources */,
 				2CC29C7A23F0A78000327917 /* GameAssembly.swift in Sources */,
+				2C7A5BE724B5139B0039C121 /* DecksViewDelegateFlowlayout.swift in Sources */,
 				2C2106BA24118D6A00D6FC39 /* SimpleCardView.swift in Sources */,
 				2C62268223F9DE8B0041DAD8 /* LocalQuestionsDatasource.swift in Sources */,
 				2CB6C3A824B3C277001BBD98 /* MainMenuView.swift in Sources */,
