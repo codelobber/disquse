@@ -6,9 +6,15 @@
 import UIKit
 
 struct GameAssembly {
-    static func gameViewController() -> UIViewController {
+    static func makeViewController(
+        screenConstatants: ScreenConstantsConfiguration,
+        router: Router
+    ) -> UIViewController {
 
-        let gameView = FrameBoardView(frame: .zero, layoutBuider: FrameBoardLayoutBuilderImpl())
+        let gameView = FrameBoardView(
+            frame: .zero,
+            screenConstatants: screenConstatants
+        )
         let datasource = LocalQuestionsDatasource()
         
         let gameController = GameViewController(

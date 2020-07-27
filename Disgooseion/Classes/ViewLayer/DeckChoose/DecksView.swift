@@ -8,8 +8,12 @@
 
 import UIKit
 
+protocol DecksViewOutput: AnyObject {
+    func didDeckSelected(_ deck:DeckModel)
+}
+
 final class DecksView: UIView {
-//    weak var delegate: BoardViewOutput?
+    weak var delegate: DecksViewOutput?
     
     private var backgroundView: UIImageView = {
         guard
@@ -40,10 +44,11 @@ final class DecksView: UIView {
             collectionViewLayout: flowLayout
         )
 
-        view.allowsSelection = false
+        view.allowsSelection = true
         view.backgroundColor = .clear
         view.dataSource = datasource
         view.showsHorizontalScrollIndicator = false
+        view.delegate = self
         
         return view
     }()
@@ -108,5 +113,18 @@ final class DecksView: UIView {
             showcaseView.heightAnchor.constraint(
                 equalToConstant: screenConstatants.cardSize.height)
         ])
+    }
+}
+
+extension DecksView: UICollectionViewDelegate {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        didSelectItemAt indexPath: IndexPath
+    ) {
+        guard let deck = self.datasource.deckForIndex(indexPath) else {
+            return
+        }
+        
+        delegate?.didDeckSelected(deck)
     }
 }

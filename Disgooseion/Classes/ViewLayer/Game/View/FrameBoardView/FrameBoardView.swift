@@ -24,20 +24,21 @@ final class FrameBoardView: UIView {
         return view
     }()
     
-    var layoutBuider: FrameBoardLayoutBuilder
-    private var layout: FrameBoardLayouts
     private var viewAddedToSuperView = false
+    private var screenConstatants: ScreenConstantsConfiguration
     
-    init(frame: CGRect, layoutBuider: FrameBoardLayoutBuilder) {
+    init(
+        frame: CGRect,
+        screenConstatants: ScreenConstantsConfiguration
+    ) {
         let model = CardViewModel(
             faceTitle: "",
             backTitle: "",
             side: .back
         )
         
-        self.layoutBuider = layoutBuider
-        layout = layoutBuider.make(frame: frame)
-        deck = CardView(model: model, styleType: layout.cardStyle)
+        self.screenConstatants = screenConstatants
+        deck = CardView(model: model, styleType: screenConstatants.cardStyle)
         
         super.init(frame: frame)
         
@@ -53,7 +54,7 @@ final class FrameBoardView: UIView {
         
         if (!viewAddedToSuperView) {
             viewAddedToSuperView = true
-            layout = layoutBuider.make(frame: frame)
+            screenConstatants.recalculate(frame)
             setupLayout()
         }
     }
@@ -82,7 +83,7 @@ final class FrameBoardView: UIView {
     }
     
     private func setupCardSize(_ card: CardView) {
-        card.frame.size = layout.cardSize
+        card.frame.size = screenConstatants.cardSize
     }
     
     private func setupBackgroundViewLayout() {
@@ -91,8 +92,8 @@ final class FrameBoardView: UIView {
     
     private func setupDeckLayout() {
         setupCardSize(deck)
-        deck.center = layout.deckCenter
-        deck.setStyleType(layout.cardStyle)
+        deck.center = screenConstatants.deckCenter
+        deck.setStyleType(screenConstatants.cardStyle)
     }
 }
 
@@ -112,7 +113,7 @@ extension FrameBoardView {
         
         let card = CardView(
             model: question.cardViewModel(),
-            styleType: layout.cardStyle
+            styleType: screenConstatants.cardStyle
         )
         card.flip(duration: 0)
         setupCardSize(card)
@@ -130,7 +131,7 @@ extension FrameBoardView {
         guard let card = selectedCard else { return }
         
         let translation = gesture.translation(in: self)
-        let finalPoint = layout.cardCenter
+        let finalPoint = screenConstatants.cardCenter
         card.center = CGPoint(
             x: card.center.x + translation.x,
             y: card.center.y + translation.y
@@ -188,12 +189,12 @@ extension FrameBoardView: BoardView {
         
         removeCurrentCard()
         
-        let card = CardView(model: question.cardViewModel(), styleType: layout.cardStyle)
+        let card = CardView(model: question.cardViewModel(), styleType: screenConstatants.cardStyle)
         
         self.addSubview(card)
         currentCard = card
         setupCardSize(card)
-        card.center = layout.cardCenter
+        card.center = screenConstatants.cardCenter
     }
     
     func hideDeck(_ shouldHide: Bool) {

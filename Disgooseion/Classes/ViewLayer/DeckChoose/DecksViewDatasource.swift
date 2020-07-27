@@ -10,6 +10,7 @@ import UIKit
 
 protocol DecksViewDatasource: UICollectionViewDataSource  {
     var cardLayout: CardLayoutStyle { get set }
+    func deckForIndex(_ index: IndexPath) -> DeckModel?
 }
 
 final class DecksViewDatasourceImpl: NSObject {
@@ -27,7 +28,7 @@ final class DecksViewDatasourceImpl: NSObject {
     }
 }
 
-extension DecksViewDatasourceImpl: DecksViewDatasource, UICollectionViewDataSource {
+extension DecksViewDatasourceImpl: UICollectionViewDataSource {
     
     func collectionView(
         _ collectionView: UICollectionView,
@@ -69,6 +70,19 @@ extension DecksViewDatasourceImpl: DecksViewDatasource, UICollectionViewDataSour
             layoutStyle: cardLayout)
     }
 }
+
+extension DecksViewDatasourceImpl: DecksViewDatasource {
+    func deckForIndex(_ index: IndexPath) -> DeckModel? {
+        guard
+            let decks = datasource.decks,
+            decks.indices.contains(index.row)
+        else { return nil }
+        
+        return decks[index.row]
+    }
+}
+
+// MARK: - DeckCell
 
 class DeckCell: UICollectionViewCell {
     var model: SimpleCardViewModel? {

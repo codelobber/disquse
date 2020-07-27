@@ -9,7 +9,10 @@
 import UIKit
 
 struct DeckChooseAssembly {
-    static func makeViewController(screenConstatants: ScreenConstantsConfiguration) -> UIViewController {
+    static func makeViewController(
+        screenConstatants: ScreenConstantsConfiguration,
+        router: Router
+    ) -> UIViewController {
         
         let questionDatasource = LocalQuestionsDatasource()
         questionDatasource.load {}
@@ -26,7 +29,8 @@ struct DeckChooseAssembly {
         )
         
         let viewController = DeckChooseViewController(
-            decksView: view
+            decksView: view,
+            router: router
         )
         
         return viewController

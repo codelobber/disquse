@@ -10,11 +10,14 @@ import UIKit
 
 final class DeckChooseViewController: UIViewController {
     let decksView: DecksView
+    weak var router: Router?
 
     init(
-        decksView: DecksView
+        decksView: DecksView,
+        router: Router
     ) {
         self.decksView = decksView
+        self.router = router
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -29,7 +32,7 @@ final class DeckChooseViewController: UIViewController {
     }
         
     private func setupSubviews() {
-//        decksView.delegate = self
+        decksView.delegate = self
         view.backgroundColor = .white
         view.addSubview(decksView)
         decksView.alpha = 0
@@ -42,5 +45,11 @@ final class DeckChooseViewController: UIViewController {
     private func setupLayout() {
         decksView.translatesAutoresizingMaskIntoConstraints = false
         decksView.stickToParentLayout(with: .zero)
+    }
+}
+
+extension DeckChooseViewController: DecksViewOutput {
+    func didDeckSelected(_ deck: DeckModel) {
+        router?.newGame(deck: deck)
     }
 }
