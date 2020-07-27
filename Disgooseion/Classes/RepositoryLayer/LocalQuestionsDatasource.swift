@@ -4,7 +4,9 @@
 //
 
 final class LocalQuestionsDatasource {
-    var questions: [Question]?
+    var allQuestions: [Question]?
+    var currentQuestionsDeck: [Question]?
+    var usedQuestionsStack: [Question]?
     var decks: [DeckModel]?
     var questionsIds: [Int]?
     lazy var loader: QuestionLoader = LocalQuestionLoader()
@@ -16,13 +18,13 @@ extension LocalQuestionsDatasource: QuestionsDatasource {
 
     var questionsCount: Int {
         get {
-            return questions?.count ?? 0
+            return currentQuestionsDeck?.count ?? 0
         }
     }
     
     func load(_ complition: QuestionsDatasource.loadedClosure?) {
         loader.get() { modelDTO in
-            questions = modelDTO.questions
+            allQuestions = modelDTO.questions
                 .map{ Question(id: 0, deck: $0.groups, text: $0.title) }
                 .shuffled()
             decks = modelDTO.decks
@@ -31,7 +33,15 @@ extension LocalQuestionsDatasource: QuestionsDatasource {
         }
     }
     
+    func chooseDeck(deck: DeckModel) {
+        currentQuestionsDeck = allQuestions?.filter { $0.deck.contains(deck.id) }
+    }
+    
     func nextQuestion() -> Question? {
-        return questions?.popLast()
+        guard let question = currentQuestionsDeck?.popLast() else {
+            return nil
+        }
+        usedQuestionsStack?.append(question)
+        return question
     }
 }

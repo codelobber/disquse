@@ -35,6 +35,7 @@ extension ViewController: Router {
     
     func newGame(deck: DeckModel) {
         let viewController = GameAssembly.makeViewController(
+            deck: deck,
             screenConstatants: screenConstatants,
             router: self
         )

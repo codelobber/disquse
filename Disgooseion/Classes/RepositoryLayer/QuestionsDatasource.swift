@@ -12,4 +12,5 @@ protocol QuestionsDatasource {
     
     func load(_ complition: loadedClosure?)
     func nextQuestion() -> Question?
+    func chooseDeck(deck: DeckModel)
 }

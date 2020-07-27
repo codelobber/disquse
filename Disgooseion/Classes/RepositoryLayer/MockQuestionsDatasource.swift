@@ -35,6 +35,8 @@ extension MockQuestionsDatasource: QuestionsDatasource {
         complition?()
     }
     
+    func chooseDeck(deck: DeckModel) {}
+    
     func nextQuestion() -> Question? {
         let random = Int.random(in: 10...100)
         let text = LocalizebleString(ru: "ru \(random)", en: "en \(random)")

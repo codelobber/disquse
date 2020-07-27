@@ -7,6 +7,7 @@ import UIKit
 
 struct GameAssembly {
     static func makeViewController(
+        deck: DeckModel,
         screenConstatants: ScreenConstantsConfiguration,
         router: Router
     ) -> UIViewController {
@@ -18,6 +19,7 @@ struct GameAssembly {
         let datasource = LocalQuestionsDatasource()
         
         let gameController = GameViewController(
+            deck: deck,
             gameView: gameView,
             datasource: datasource
         )

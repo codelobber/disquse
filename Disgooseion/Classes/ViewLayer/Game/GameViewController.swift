@@ -8,11 +8,14 @@ import UIKit
 final class GameViewController: UIViewController {
     let gameView: BoardView
     let datasource: QuestionsDatasource
+    let deck: DeckModel
 
     init(
+        deck: DeckModel,
         gameView: BoardView,
         datasource: QuestionsDatasource
     ) {
+        self.deck = deck
         self.gameView = gameView
         self.datasource = datasource
         
@@ -28,7 +31,9 @@ final class GameViewController: UIViewController {
         setupLayout()
         
         datasource.load { [weak self] in
-            self?.showQuestion()
+            guard let self = self else { return }
+            self.datasource.chooseDeck(deck: self.deck)
+            self.showQuestion()
         }
     }
     
