@@ -9,10 +9,13 @@ protocol BoardView: UIView {
     var delegate: BoardViewOutput? { get set }
     
     func showQuestion(_ question: Question)
+    func hideQuestion()
     func hideDeck(_ shouldHide: Bool)
 }
 
 protocol BoardViewOutput: AnyObject {
     func nextQuestion()
+    func prevQuestion()
     func getNextQuestion() -> Question?
+    func getPrevQuestion() -> Question?
 }

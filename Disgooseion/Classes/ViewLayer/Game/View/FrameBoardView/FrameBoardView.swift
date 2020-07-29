@@ -97,6 +97,7 @@ final class FrameBoardView: UIView {
     }
 }
 
+// MARK: - nextCard
 extension FrameBoardView {
     
     @objc
@@ -104,22 +105,30 @@ extension FrameBoardView {
         delegate?.nextQuestion()
     }
     
-    func addNewCardIfNeeded(to newCenter: CGPoint) {
-        if selectedCard != nil { return }
-            
-        guard let question = delegate?.getNextQuestion() else {
-            return
-        }
-        
+    func createNewCardIfNeeded(_ question: Question) -> CardView {
         let card = CardView(
             model: question.cardViewModel(),
             styleType: screenConstatants.cardStyle
         )
-        card.flip(duration: 0)
+        
         setupCardSize(card)
-        card.center = newCenter
         self.addSubview(card)
-        selectedCard = card
+
+        card.addGestureRecognizer(
+            UITapGestureRecognizer(
+                target: self,
+                action: #selector(cardTap)
+            )
+        )
+        return card
+    }
+    
+    func addNewCardIfNeeded(to newCenter: CGPoint) {
+        if selectedCard != nil { return }
+        guard let question = delegate?.getNextQuestion() else { return }
+        selectedCard = createNewCardIfNeeded(question)
+        selectedCard?.flip(duration: 0)
+        selectedCard?.center = newCenter
     }
     
     @objc
@@ -183,18 +192,24 @@ extension FrameBoardView {
     }
 }
 
+// MARK: - prevCard
+extension FrameBoardView {
+    @objc
+    func cardTap() {
+        delegate?.prevQuestion()
+    }
+}
+
 extension FrameBoardView: BoardView {
     
     func showQuestion(_ question: Question) {
-        
         removeCurrentCard()
-        
-        let card = CardView(model: question.cardViewModel(), styleType: screenConstatants.cardStyle)
-        
-        self.addSubview(card)
-        currentCard = card
-        setupCardSize(card)
-        card.center = screenConstatants.cardCenter
+        currentCard = createNewCardIfNeeded(question)
+        currentCard?.center = screenConstatants.cardCenter
+    }
+    
+    func hideQuestion() {
+        removeCurrentCard()
     }
     
     func hideDeck(_ shouldHide: Bool) {
@@ -203,5 +218,6 @@ extension FrameBoardView: BoardView {
     
     private func removeCurrentCard() {
         currentCard?.removeFromSuperview()
+        currentCard = nil
     }
 }

@@ -14,9 +14,15 @@ final class MockQuestionsDatasource {
 
 extension MockQuestionsDatasource: QuestionsDatasource {
     
-    var questionsCount: Int {
+    var questionsRemains: Int {
         get {
-            return 999
+            return 99
+        }
+    }
+    
+    var questionsAnswered: Int {
+        get {
+            return 99
         }
     }
     
@@ -41,5 +47,9 @@ extension MockQuestionsDatasource: QuestionsDatasource {
         let random = Int.random(in: 10...100)
         let text = LocalizebleString(ru: "ru \(random)", en: "en \(random)")
         return Question(id: 0, deck: ["Simple"], text: text)
+    }
+    
+    func prevQuestion() -> Question? {
+        return nextQuestion()
     }
 }

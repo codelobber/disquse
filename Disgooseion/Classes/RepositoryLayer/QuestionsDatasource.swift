@@ -7,10 +7,12 @@
 protocol QuestionsDatasource {
     typealias loadedClosure = () -> Void
     
-    var questionsCount: Int { get }
+    var questionsRemains: Int { get }
+    var questionsAnswered: Int { get }
     var decks: [DeckModel]? { get }
     
     func load(_ complition: loadedClosure?)
     func nextQuestion() -> Question?
+    func prevQuestion() -> Question?
     func chooseDeck(deck: DeckModel)
 }

@@ -16,9 +16,15 @@ final class LocalQuestionsDatasource {
 
 extension LocalQuestionsDatasource: QuestionsDatasource {
 
-    var questionsCount: Int {
+    var questionsRemains: Int {
         get {
             return currentQuestionsDeck?.count ?? 0
+        }
+    }
+    
+    var questionsAnswered: Int {
+        get {
+            return usedQuestionsStack?.count ?? 0
         }
     }
     
@@ -35,6 +41,7 @@ extension LocalQuestionsDatasource: QuestionsDatasource {
     
     func chooseDeck(deck: DeckModel) {
         currentQuestionsDeck = allQuestions?.filter { $0.deck.contains(deck.id) }
+        usedQuestionsStack = []
     }
     
     func nextQuestion() -> Question? {
@@ -43,5 +50,12 @@ extension LocalQuestionsDatasource: QuestionsDatasource {
         }
         usedQuestionsStack?.append(question)
         return question
+    }
+    
+    func prevQuestion() -> Question? {
+        guard let question = usedQuestionsStack?.popLast() else { return nil }
+        currentQuestionsDeck?.append(question)
+        
+        return usedQuestionsStack?.last
     }
 }

@@ -42,6 +42,15 @@ final class GameViewController: UIViewController {
         gameView.showQuestion(nextQuestion)
     }
     
+    private func showPrevQuestion() {
+        guard let prevQuestion = datasource.prevQuestion() else {
+            gameView.hideQuestion()
+            return
+        }
+        gameView.showQuestion(prevQuestion)
+        gameView.hideDeck(false)
+    }
+    
     private func setupSubviews() {
         gameView.delegate = self
         view.backgroundColor = .white
@@ -64,12 +73,21 @@ final class GameViewController: UIViewController {
 extension GameViewController: BoardViewOutput {
     func nextQuestion() {
         showQuestion()
-        if datasource.questionsCount == 0 { gameView.hideDeck(true) }
+        if datasource.questionsRemains == 0 { gameView.hideDeck(true) }
+    }
+    
+    func prevQuestion() {
+        showPrevQuestion()
     }
     
     func getNextQuestion() -> Question? {
         let question = datasource.nextQuestion()
-        if datasource.questionsCount == 0 { gameView.hideDeck(true) }
+        if datasource.questionsRemains == 0 { gameView.hideDeck(true) }
+        return question
+    }
+    
+    func getPrevQuestion() -> Question? {
+        let question = datasource.prevQuestion()
         return question
     }
 }
