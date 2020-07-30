@@ -18,4 +18,5 @@ protocol BoardViewOutput: AnyObject {
     func prevQuestion()
     func getNextQuestion() -> Question?
     func getPrevQuestion() -> Question?
+    func openMenu()
 }

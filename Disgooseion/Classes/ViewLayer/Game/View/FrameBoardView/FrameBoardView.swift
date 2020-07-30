@@ -12,6 +12,14 @@ final class FrameBoardView: UIView {
     private var selectedCard: CardView?
     private var currentCard: CardView?
     private var deck: CardView
+    private var menuCard: UIButton = {
+        let view = UIButton()
+        view.setTitle("Выбрать новую тему", for: .normal)
+        view.setTitleColor(.black, for: .normal)
+        view.backgroundColor = .clear
+        return view
+    }()
+    
     private var backgroundView: UIImageView = {
         guard
             let image = UIImage(named: "bg", in: Bundle.main, with: nil)
@@ -61,11 +69,17 @@ final class FrameBoardView: UIView {
     
     private func setupSubviews() {
         addSubview(backgroundView)
+        addSubview(menuCard)
         addSubview(deck)
         
         let tapGesture = UITapGestureRecognizer(
             target: self,
             action: #selector(deckTap)
+        )
+        
+        let menuTapGesture = UITapGestureRecognizer(
+            target: self,
+            action: #selector(menuTap)
         )
         
         let panGesture = UIPanGestureRecognizer(
@@ -75,11 +89,13 @@ final class FrameBoardView: UIView {
         
         deck.addGestureRecognizer(tapGesture)
         deck.addGestureRecognizer(panGesture)
+        menuCard.addGestureRecognizer(menuTapGesture)
     }
     
     private func setupLayout() {
         setupBackgroundViewLayout()
         setupDeckLayout()
+        setupMenuLayout()
     }
     
     private func setupCardSize(_ card: CardView) {
@@ -94,6 +110,21 @@ final class FrameBoardView: UIView {
         setupCardSize(deck)
         deck.center = screenConstatants.deckCenter
         deck.setStyleType(screenConstatants.cardStyle)
+    }
+    
+    private func setupMenuLayout() {
+        menuCard.frame.origin.y = deck.frame.origin.y
+        menuCard.frame.origin.x = deck.frame.origin.x
+        menuCard.frame.size.height = frame.height - deck.frame.origin.y + screenConstatants.cardStyle.style().cardInsets.top + 1
+        menuCard.frame.size.width = screenConstatants.cardSize.width
+    }
+}
+
+// MARK: - menu
+extension FrameBoardView {
+    @objc
+    func menuTap() {
+        delegate?.openMenu()
     }
 }
 

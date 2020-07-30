@@ -21,7 +21,8 @@ struct GameAssembly {
         let gameController = GameViewController(
             deck: deck,
             gameView: gameView,
-            datasource: datasource
+            datasource: datasource,
+            router: router
         )
         return gameController
     }

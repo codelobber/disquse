@@ -1,13 +1,13 @@
 {
   "images" : [
     {
+      "filename" : "grey_sandbag.png",
       "idiom" : "universal",
-      "filename" : "washi.png",
       "scale" : "1x"
     },
     {
+      "filename" : "grey_sandbag_@2X.png",
       "idiom" : "universal",
-      "filename" : "washi_@2X.png",
       "scale" : "2x"
     },
     {
@@ -16,7 +16,7 @@
     }
   ],
   "info" : {
-    "version" : 1,
-    "author" : "xcode"
+    "author" : "xcode",
+    "version" : 1
   }
 }

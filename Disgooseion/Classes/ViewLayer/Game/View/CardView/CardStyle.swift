@@ -34,3 +34,12 @@ class CardStyleBack: CardStyle {
         self.backgroundCapInsets = .zero
     }
 }
+
+class CardStyleMessage: CardStyle {
+    override init() {
+        super.init()
+        backgroundColor = UIColor.clear
+        backgroundImageName = ""
+        backgroundCapInsets = .zero
+    }
+}

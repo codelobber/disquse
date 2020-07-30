@@ -9,15 +9,18 @@ final class GameViewController: UIViewController {
     let gameView: BoardView
     let datasource: QuestionsDatasource
     let deck: DeckModel
+    weak var router: Router?
 
     init(
         deck: DeckModel,
         gameView: BoardView,
-        datasource: QuestionsDatasource
+        datasource: QuestionsDatasource,
+        router: Router
     ) {
         self.deck = deck
         self.gameView = gameView
         self.datasource = datasource
+        self.router = router
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -89,5 +92,9 @@ extension GameViewController: BoardViewOutput {
     func getPrevQuestion() -> Question? {
         let question = datasource.prevQuestion()
         return question
+    }
+    
+    func openMenu() {
+        router?.deckChoose()
     }
 }
