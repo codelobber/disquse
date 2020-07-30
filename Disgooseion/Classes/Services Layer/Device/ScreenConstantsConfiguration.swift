@@ -11,6 +11,8 @@ final class ScreenConstantsConfiguration {
     private(set) var deckCenter: CGPoint = .zero
     private(set) var cardStyle = CardLayoutStyle.StyleType.small
     private(set) var screenSize: ScreenSize = .legacy
+    private(set) var titleFont: UIFont = .systemFont(ofSize: 20, weight: .medium)
+    private(set) var textFont: UIFont = .systemFont(ofSize: 16, weight: .regular)
 }
 
 extension ScreenConstantsConfiguration {

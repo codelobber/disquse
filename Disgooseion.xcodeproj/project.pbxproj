@@ -121,6 +121,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C11D60924D36BBC00560542 /* Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Rules;
+			sourceTree = "<group>";
+		};
 		2C62267723F9D58B0041DAD8 /* Services Layer */ = {
 			isa = PBXGroup;
 			children = (
@@ -267,6 +274,7 @@
 		2CC29C6A23F0A0D500327917 /* ViewLayer */ = {
 			isa = PBXGroup;
 			children = (
+				2C11D60924D36BBC00560542 /* Rules */,
 				2CB6C39E24B3BE77001BBD98 /* DeckChoose */,
 				2CB6C39D24B3BE4F001BBD98 /* MainMenu */,
 				2CC29C6E23F0A27300327917 /* Game */,

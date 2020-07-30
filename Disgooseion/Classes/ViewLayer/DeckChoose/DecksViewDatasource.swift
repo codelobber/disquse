@@ -9,21 +9,20 @@
 import UIKit
 
 protocol DecksViewDatasource: UICollectionViewDataSource  {
-    var cardLayout: CardLayoutStyle { get set }
     func deckForIndex(_ index: IndexPath) -> DeckModel?
 }
 
 final class DecksViewDatasourceImpl: NSObject {
     private let reuseIdentifier = "DeckCell"
     private let datasource: QuestionsDatasource
-    var cardLayout: CardLayoutStyle
+    private let screenConstatants: ScreenConstantsConfiguration
     
     init(
         datasource: QuestionsDatasource,
-        cardLayout: CardLayoutStyle
+        screenConstatants: ScreenConstantsConfiguration
     ) {
         self.datasource = datasource
-        self.cardLayout = cardLayout
+        self.screenConstatants = screenConstatants
         super.init()
     }
 }
@@ -58,6 +57,7 @@ extension DecksViewDatasourceImpl: UICollectionViewDataSource {
             let decks = datasource.decks,
             decks.indices.contains(indexPath.row)
         {
+            cell.screenConstatants = screenConstatants
             cell.model = simpleCardViewModel(for: decks[indexPath.row])
         }
         return cell
@@ -66,12 +66,15 @@ extension DecksViewDatasourceImpl: UICollectionViewDataSource {
     private func simpleCardViewModel(for deck: DeckModel) -> SimpleCardViewModel {
         return SimpleCardViewModel(
             text: deck.text.getCurrentLocal() ?? "",
+            descript: deck.descript?.getCurrentLocal() ?? "",
             style: CardStyleFace(),
-            layoutStyle: cardLayout)
+            layoutStyle: screenConstatants.cardStyle.style()
+        )
     }
 }
 
 extension DecksViewDatasourceImpl: DecksViewDatasource {
+
     func deckForIndex(_ index: IndexPath) -> DeckModel? {
         guard
             let decks = datasource.decks,
@@ -88,22 +91,34 @@ class DeckCell: UICollectionViewCell {
     var model: SimpleCardViewModel? {
         didSet {
             if let model = model {
-                if let view = view {
-                    view.model = model
+                if view == nil {
+                    createView(with: model)
                 } else {
-                    self.createView(with: model)
+                    updateView(with: model)
                 }
             }
             
         }
     }
+    var screenConstatants: ScreenConstantsConfiguration?
     private var view: SimpleCardView?
+    private lazy var descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.text = ""
+        label.textAlignment = .center
+        label.font = screenConstatants?.textFont
+        label.lineBreakMode = .byWordWrapping
+        label.numberOfLines = 0
+        return label
+    }()
     
     init(
         frame: CGRect,
-        model: SimpleCardViewModel?
+        model: SimpleCardViewModel?,
+        screenConstatants: ScreenConstantsConfiguration?
     ) {
         self.model = model
+        self.screenConstatants = screenConstatants
         
         super.init(frame: frame)
         
@@ -115,7 +130,8 @@ class DeckCell: UICollectionViewCell {
     override convenience init(frame: CGRect) {
         self.init(
             frame: frame,
-            model: nil
+            model: nil,
+            screenConstatants: nil
         )
     }
     
@@ -123,18 +139,50 @@ class DeckCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private func updateView(with model: SimpleCardViewModel) {
+        view?.model = model
+        descriptionLabel.font = screenConstatants?.textFont
+        descriptionLabel.text = model.descript
+    }
+    
     private func createView(with model:SimpleCardViewModel) {
         view = SimpleCardView(model: model)
+        updateView(with: model)
         setupSubviews()
         setupLayout()
     }
     
     private func setupSubviews() {
         view.map{ contentView.addSubview($0) }
+        contentView.addSubview(descriptionLabel)
     }
     
     private func setupLayout() {
-        view?.stickToParentLayout(with: .zero)
-        contentView.stickToParentLayout(with: .zero)
+        setupViewLayout()
+        setupDescriptionLayout()
+    }
+    
+    private func setupViewLayout() {
+        guard let view = view else { return }
+        view.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            view.leftAnchor.constraint(equalTo: contentView.leftAnchor),
+            view.rightAnchor.constraint(equalTo: contentView.rightAnchor),
+            view.topAnchor.constraint(equalTo: contentView.topAnchor),
+            view.heightAnchor.constraint(equalTo: view.widthAnchor)
+        ])
+    }
+
+    private func setupDescriptionLayout() {
+        guard let view = view else { return }
+        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            descriptionLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20),
+            descriptionLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -20),
+            descriptionLabel.topAnchor.constraint(equalTo: view.bottomAnchor, constant: 20),
+            descriptionLabel.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor),
+        ])
     }
 }

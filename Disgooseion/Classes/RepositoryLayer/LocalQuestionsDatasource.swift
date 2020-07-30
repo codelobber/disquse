@@ -34,7 +34,7 @@ extension LocalQuestionsDatasource: QuestionsDatasource {
                 .map{ Question(id: 0, deck: $0.groups, text: $0.title) }
                 .shuffled()
             decks = modelDTO.decks
-                .map{ DeckModel(id: $0.id, text: $0.title) }
+                .map{ DeckModel(id: $0.id, text: $0.title, descript: $0.descript) }
             complition?()
         }
     }

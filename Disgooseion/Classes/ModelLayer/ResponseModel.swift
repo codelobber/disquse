@@ -11,6 +11,7 @@ struct ResponseDTOModel: Decodable {
 struct DeckDTOModel: Decodable {
     let id: String
     let title: LocalizebleString
+    let descript: LocalizebleString?
 }
 
 struct QuestionDTOModel: Decodable {

@@ -31,7 +31,8 @@ extension MockQuestionsDatasource: QuestionsDatasource {
             return [
                 DeckModel(
                     id: "Simple",
-                    text: LocalizebleString(ru: "ru", en: "en")
+                    text: LocalizebleString(ru: "ru", en: "en"),
+                    descript: LocalizebleString(ru: "ru", en: "en")
                 )
             ]
         }

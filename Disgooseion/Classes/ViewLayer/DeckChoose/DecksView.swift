@@ -27,6 +27,16 @@ final class DecksView: UIView {
         return view
     }()
     
+    private lazy var title: UILabel = {
+        let label = UILabel()
+        label.text = "Выберите тему для игры"
+        label.textAlignment = .center
+        label.font = screenConstatants.titleFont
+        label.lineBreakMode = .byWordWrapping
+        label.numberOfLines = 0
+        return label
+    }()
+    
     private let screenConstatants: ScreenConstantsConfiguration
 
     private var viewAddedToSuperView = false
@@ -38,6 +48,7 @@ final class DecksView: UIView {
         layout.scrollDirection = .horizontal
         return layout
     }()
+    
     private lazy var showcaseView : UICollectionView = {
         let view = UICollectionView(
             frame: frame,
@@ -75,13 +86,13 @@ final class DecksView: UIView {
         if (!viewAddedToSuperView) {
             screenConstatants.recalculate(frame)
             viewAddedToSuperView = true
-            datasource.cardLayout = screenConstatants.cardStyle.style()
             setupLayout()
         }
     }
     
     private func setupSubviews() {
         addSubview(backgroundView)
+        addSubview(title)
         addSubview(showcaseView)
     }
     
@@ -89,12 +100,13 @@ final class DecksView: UIView {
         setupCollectionSizes()
         setupBackgroundViewLayout()
         setupShowcaseViewLayout()
+        setupTitleLayout()
     }
     
     private func setupCollectionSizes() {
         flowLayout.itemSize = CGSize(
             width: screenConstatants.cardSize.width,
-            height: screenConstatants.cardSize.height
+            height: frame.height*3/4
         )
     }
     
@@ -108,12 +120,24 @@ final class DecksView: UIView {
         NSLayoutConstraint.activate([
             showcaseView.leftAnchor.constraint(equalTo: leftAnchor),
             showcaseView.rightAnchor.constraint(equalTo: rightAnchor),
-            showcaseView.centerYAnchor.constraint(
-                equalTo: centerYAnchor),
+            showcaseView.bottomAnchor.constraint(
+                equalTo: bottomAnchor),
             showcaseView.heightAnchor.constraint(
-                equalToConstant: screenConstatants.cardSize.height)
+                equalTo: self.heightAnchor, multiplier: 3/4)
         ])
     }
+    
+    private func setupTitleLayout() {
+        title.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            title.leftAnchor.constraint(equalTo: leftAnchor, constant: 50),
+            title.rightAnchor.constraint(equalTo: rightAnchor, constant: -50),
+            title.bottomAnchor.constraint(equalTo: showcaseView.topAnchor),
+            title.topAnchor.constraint(equalTo: topAnchor),
+        ])
+    }
+    
 }
 
 extension DecksView: UICollectionViewDelegate {

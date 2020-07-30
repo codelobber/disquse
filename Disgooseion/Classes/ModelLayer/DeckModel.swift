@@ -9,6 +9,7 @@
 struct DeckModel {
     let id: String
     let text: LocalizebleString
+    let descript: LocalizebleString?
 }
 
 extension DeckModel {

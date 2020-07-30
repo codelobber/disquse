@@ -7,6 +7,7 @@ import UIKit
 
 struct SimpleCardViewModel {
     var text: String
+    var descript: String?
     var style: CardStyle
     var layoutStyle: CardLayoutStyle
 }

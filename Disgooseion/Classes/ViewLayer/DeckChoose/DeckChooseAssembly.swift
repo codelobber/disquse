@@ -19,7 +19,7 @@ struct DeckChooseAssembly {
         
         let decksViewDatasource = DecksViewDatasourceImpl(
             datasource: questionDatasource,
-            cardLayout: CardStyleBig()
+            screenConstatants: screenConstatants
         )
 
         let view = DecksView(
